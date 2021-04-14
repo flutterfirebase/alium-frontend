@@ -1,0 +1,20 @@
+{
+  "hurray": "Hurray",
+  "greetingsMessage": "We're up and running. Join us now to get the maximum benefit from the very beginning!",
+  "startTrading": "Start trading",
+  "swap": "Exchange",
+  "connect": "Connect",
+  "learnHowConnect": "Learn how to connect",
+  "logout": "Logout",
+  "copyAddress": "Copy Address",
+  "viewOnBscscan": "View on bscscan",
+  "connectToWallet": "Connect to a wallet",
+  "mainMenu": {
+    "liquidity": "Liquidity",
+    "home": "Home",
+    "trade": "Trade",
+    "more": "More",
+    "github": "GitHub",
+    "blog": "Blog"
+  }
+}
