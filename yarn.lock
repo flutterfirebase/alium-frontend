@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@aliumswap/uikit@^0.10.65":
-  version "0.10.65"
-  resolved "https://registry.yarnpkg.com/@aliumswap/uikit/-/uikit-0.10.65.tgz#d8df948594acff2ae8dd0c1f90d56ff5824a02ca"
-  integrity sha512-LHdSux/ap/Eje5E4G2ayodV4w5oiRxBzDovMxepyT0kDb0K9qjujKtWYDz1zzz2I1FkZFsWICTROudtSQkgdlQ==
+"@aliumswap/uikit@^0.11.45":
+  version "0.11.45"
+  resolved "https://registry.yarnpkg.com/@aliumswap/uikit/-/uikit-0.11.45.tgz#eb0711955fd20b0b9d5f0a7bba6dd2a1ea9acd94"
+  integrity sha512-FWKyIgk883jZyLAAquonPbFNEZIS9vSOLZtPzm4XCjWcbyFFF5sI3lmm7bS1CoB4O9JH2DNVMD17FHOBVFknQg==
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"
@@ -13,6 +13,7 @@
     react-loader-spinner "^4.0.0"
     react-transition-group "^4.4.1"
     styled-system "^5.1.5"
+    typeface-roboto "^1.1.13"
 
 "@aragon/provided-connector@^6.0.7":
   version "6.0.8"
@@ -15889,6 +15890,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typeface-roboto@^1.1.13:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/typeface-roboto/-/typeface-roboto-1.1.13.tgz#9c4517cb91e311706c74823e857b4bac9a764ae5"
+  integrity sha512-YXvbd3a1QTREoD+FJoEkl0VQNJoEjewR2H11IjVv4bp6ahuIcw0yyw/3udC4vJkHw3T3cUh85FTg8eWef3pSaw==
 
 typescript@^4.1.5:
   version "4.1.5"

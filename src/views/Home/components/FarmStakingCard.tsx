@@ -106,14 +106,14 @@ const FarmedStakingCard = () => {
               id="harvest-all"
               disabled={balancesWithValue.length <= 0 || pendingTx}
               onClick={harvestAllFarms}
-              fullWidth
+              fullwidth
             >
               {pendingTx
                 ? TranslateString(548, 'Collecting CAKE')
                 : TranslateString(532, `Harvest all (${balancesWithValue.length})`)}
             </Button>
           ) : (
-            <UnlockButton variant="tertiary" fullWidth />
+            <UnlockButton variant="tertiary" fullwidth />
           )}
         </Actions>
       </CardBody>

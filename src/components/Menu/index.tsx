@@ -1,13 +1,10 @@
-import React, { useContext, FC } from 'react'
+import React, { FC } from 'react'
 import { Menu as UikitMenu, MenuEntry } from '@aliumswap/uikit'
 import { useWeb3React } from '@web3-react/core'
 import { Route, RouteProps } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { allLanguages } from 'config/localisation/languageCodes'
-import { LanguageContext } from 'contexts/Localisation/languageContext'
 import useTheme from 'hooks/useTheme'
 import useAuth from 'hooks/useAuth'
-import { usePriceCakeBusd, useProfile } from 'state/hooks'
 
 
 type PropsType = {
@@ -16,10 +13,7 @@ type PropsType = {
 const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
   const { account } = useWeb3React()
   const { login, logout } = useAuth()
-  const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
-  const cakePriceUsd = usePriceCakeBusd()
-  const { profile } = useProfile()
   const { t } = useTranslation()
 
   const links: MenuEntry[] = [
@@ -40,77 +34,25 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
           label: t('mainMenu.liquidity'),
           href: process.env.REACT_APP_LIQUIDITY_URL,
         },
-        // {
-        //   label: 'Migrate',
-        //   href: '/migrate',
-        // },
       ],
     },
     // {
-    //   label: 'Farms',
-    //   icon: 'FarmIcon',
-    //   href: '/farms',
-    // },
-    // {
-    //   label: 'Pools',
-    //   icon: 'PoolIcon',
-    //   href: '/pools',
-    // },
-    // {
-    //   label: 'Lottery',
-    //   icon: 'TicketIcon',
-    //   href: '/lottery',
-    // },
-    // {
-    //   label: 'NFT',
-    //   icon: 'NftIcon',
-    //   href: '/nft',
-    // },
-    // {
-    //   label: 'Teams & Profile',
-    //   icon: 'GroupsIcon',
-    //   calloutClass: 'rainbow',
-    //   items: [
-    //     {
-    //       label: 'Leaderboard',
-    //       href: '/teams',
-    //     },
-    //     {
-    //       label: 'Task Center',
-    //       href: '/profile/tasks',
-    //     },
-    //     {
-    //       label: 'Your Profile',
-    //       href: '/profile',
-    //     },
-    //   ],
-    // },
-    // {
-    //   label: 'Info',
+    //   label: 'Analytics',
     //   icon: 'InfoIcon',
     //   items: [
     //     {
     //       label: 'Overview',
-    //       href: 'https://info.dev.alium.finance',
+    //       href: process.env.REACT_APP_INFO_URL,
     //     },
     //     {
     //       label: 'Tokens',
-    //       href: 'https://info.dev.alium.finance/tokens',
+    //       href: `${process.env.REACT_APP_INFO_URL}/tokens`,
     //     },
     //     {
     //       label: 'Pairs',
-    //       href: 'https://info.dev.alium.finance/pairs',
-    //     },
-    //     {
-    //       label: 'Accounts',
-    //       href: 'https://info.dev.alium.finance/accounts',
+    //       href: `${process.env.REACT_APP_INFO_URL}/pairs`,
     //     },
     //   ],
-    // },
-    // {
-    //   label: 'IFO',
-    //   icon: 'IfoIcon',
-    //   href: '/ifo',
     // },
     {
       label: t('mainMenu.more'),
@@ -147,18 +89,7 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       logout={logout}
       isDark={isDark}
       toggleTheme={toggleTheme}
-      currentLang={selectedLanguage && selectedLanguage.code}
-      langs={allLanguages}
-      setLang={setSelectedLanguage}
-      cakePriceUsd={cakePriceUsd.toNumber()}
       links={links}
-      profile={{
-        username: profile?.username,
-        image: profile?.nft ? `/images/nfts/${profile.nft?.images.sm}` : undefined,
-        profileLink: '/',
-        noProfileLink: '/',
-        showPip: !profile?.username,
-      }}
       loginBlockVisible={loginBlockVisible}
       buttonTitle={t('connect')}
       options={
@@ -170,6 +101,8 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
           modelCopyAddress: t('copyAddress')
         }
       }
+      betaText="This is the main version. Press here to switch to Beta."
+      betaLink="https://beta.exchange.alium.finance"
       {...props}
     />
   )
