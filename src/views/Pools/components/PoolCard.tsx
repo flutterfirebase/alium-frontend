@@ -33,6 +33,42 @@ interface HarvestProps {
   pool: PoolWithApy
 }
 
+const PoolFinishedSash = styled.div`
+  background-image: url('/images/pool-finished-sash.svg');
+  background-position: top right;
+  background-repeat: not-repeat;
+  height: 135px;
+  position: absolute;
+  right: -24px;
+  top: -24px;
+  width: 135px;
+`
+
+const StyledCardActions = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+  width: 100%;
+  box-sizing: border-box;
+`
+
+const BalanceAndCompound = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+`
+
+const StyledActionSpacer = styled.div`
+  height: ${(props) => props.theme.spacing[4]}px;
+  width: ${(props) => props.theme.spacing[4]}px;
+`
+
+const StyledDetails = styled.div`
+  display: flex;
+  font-size: 14px;
+`
+
 const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const {
     sousId,
@@ -209,41 +245,5 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     </Card>
   )
 }
-
-const PoolFinishedSash = styled.div`
-  background-image: url('/images/pool-finished-sash.svg');
-  background-position: top right;
-  background-repeat: not-repeat;
-  height: 135px;
-  position: absolute;
-  right: -24px;
-  top: -24px;
-  width: 135px;
-`
-
-const StyledCardActions = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 16px 0;
-  width: 100%;
-  box-sizing: border-box;
-`
-
-const BalanceAndCompound = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-`
-
-const StyledActionSpacer = styled.div`
-  height: ${(props) => props.theme.spacing[4]}px;
-  width: ${(props) => props.theme.spacing[4]}px;
-`
-
-const StyledDetails = styled.div`
-  display: flex;
-  font-size: 14px;
-`
 
 export default PoolCard

@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import Providers from './Providers'
-import './i18n';
+import './i18n'
 import 'typeface-roboto'
 
 ReactDOM.render(

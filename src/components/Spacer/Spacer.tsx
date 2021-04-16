@@ -5,6 +5,11 @@ interface SpacerProps {
   size?: 'sm' | 'md' | 'lg'
 }
 
+const StyledSpacer = styled.div<StyledSpacerProps>`
+  height: ${(props) => props.size}px;
+  width: ${(props) => props.size}px;
+`
+
 const Spacer: React.FC<SpacerProps> = ({ size = 'md' }) => {
   const { spacing } = useContext(ThemeContext)
 
@@ -27,10 +32,5 @@ const Spacer: React.FC<SpacerProps> = ({ size = 'md' }) => {
 interface StyledSpacerProps {
   size: number
 }
-
-const StyledSpacer = styled.div<StyledSpacerProps>`
-  height: ${(props) => props.size}px;
-  width: ${(props) => props.size}px;
-`
 
 export default Spacer

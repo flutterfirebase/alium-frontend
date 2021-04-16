@@ -4,13 +4,13 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { NotFound, Maintenance, ResetCSS } from '@aliumswap/uikit'
 import BigNumber from 'bignumber.js'
 import useEagerConnect from 'hooks/useEagerConnect'
-import { useFetchProfile, useFetchPublicData } from 'state/hooks'
+// import { useFetchProfile, useFetchPublicData } from 'state/hooks'
 import GlobalStyle from './style/Global'
 import { MenuWrappedRoute } from './components/Menu'
 import ToastListener from './components/ToastListener'
 import PageLoader from './components/PageLoader'
 import Pools from './views/Pools'
-
+import AuditPage from './views/Audit'
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page'
@@ -38,8 +38,8 @@ const App: React.FC = () => {
   }, [])
 
   useEagerConnect()
-  useFetchPublicData()
-  useFetchProfile()
+  // useFetchPublicData()
+  // useFetchProfile()
 
   const loginBlockVisible = true
   const loginBlockHidden = false
@@ -47,22 +47,21 @@ const App: React.FC = () => {
   return (
     <Router>
       <Suspense fallback={<PageLoader />}>
-
         <ResetCSS />
         <GlobalStyle />
         <Switch>
-
           <MenuWrappedRoute loginBlockVisible={loginBlockVisible} path="/" exact>
             <Home />
           </MenuWrappedRoute>
-
           <MenuWrappedRoute loginBlockVisible={loginBlockVisible} path="/farms">
             <Farms />
           </MenuWrappedRoute>
           <MenuWrappedRoute loginBlockVisible={loginBlockVisible} path="/pools">
             <Pools />
           </MenuWrappedRoute>
-
+          <MenuWrappedRoute loginBlockVisible={loginBlockVisible} path="/audits">
+            <AuditPage />
+          </MenuWrappedRoute>
           {/* <Route path="/lottery">
               <Lottery />
             </Route> */}
@@ -89,21 +88,15 @@ const App: React.FC = () => {
               <Redirect to="/pools" />
             </Route> */}
           {/* 404 */}
-
           <Route path="/maintenance">
             <Maintenance />
           </Route>
-
           <MenuWrappedRoute loginBlockVisible={loginBlockHidden}>
             <NotFound redirectURL={process.env.REACT_APP_HOME_URL}/>
           </MenuWrappedRoute>
-         
-
         </Switch>
-
         <ToastListener />
       </Suspense>
-
     </Router>
   )
 }

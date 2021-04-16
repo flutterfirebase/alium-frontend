@@ -2,6 +2,32 @@
 # yarn lockfile v1
 
 
+"@aliumswap/eslint-config-aliumswap@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@aliumswap/eslint-config-aliumswap/-/eslint-config-aliumswap-1.0.0.tgz#5714ec756e8da94692d595f4004dfccc18f0f9d5"
+  integrity sha512-kA/THz2RHCsSviy/LiHLZEhJxTyIHxAtEgf1Pl4L0i6kA3hzrcosWlyGrJ11VGD3/NHaHLbpABVB2y58ZAP7zw==
+  dependencies:
+    "@typescript-eslint/eslint-plugin" "^4.7.0"
+    "@typescript-eslint/parser" "^4.7.0"
+    eslint-config-airbnb "^18.2.1"
+    eslint-config-prettier "^6.15.0"
+    eslint-plugin-import "^2.22.1"
+    eslint-plugin-jsx-a11y "^6.4.1"
+    eslint-plugin-react "^7.21.5"
+    eslint-plugin-react-hooks "^4.0.0"
+
+"@aliumswap/sdk@^1.1.10":
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/@aliumswap/sdk/-/sdk-1.1.10.tgz#b2b2a226082853dd926c7212ecb85fea48f66d57"
+  integrity sha512-RA4DKcc9AAYKXE1KaDOT/MRE72aQrC3LZ0q5JvNxccOCZNokVyqV+9aQy1gtlYaXftZcaw4CILS6+RBXURvGmg==
+  dependencies:
+    big.js "^5.2.2"
+    decimal.js-light "^2.5.0"
+    jsbi "^3.1.1"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+    toformat "^2.0.0"
+
 "@aliumswap/uikit@^0.11.45":
   version "0.11.45"
   resolved "https://registry.yarnpkg.com/@aliumswap/uikit/-/uikit-0.11.45.tgz#eb0711955fd20b0b9d5f0a7bba6dd2a1ea9acd94"
@@ -2284,31 +2310,6 @@
   dependencies:
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
-
-"@pancakeswap-libs/eslint-config-pancake@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@pancakeswap-libs/eslint-config-pancake/-/eslint-config-pancake-1.0.0.tgz#da5c17842d1cb0d575bca3de0c9404386c386151"
-  integrity sha512-/rE1jQsgDV+jUvYIJKzIlLGFSYwku8K67nprRMmsbhdG+FHdBJnclIyIbVY1NnVtuwGaP+uBQiS/tn6Zhiyx8w==
-  dependencies:
-    "@typescript-eslint/eslint-plugin" "^4.7.0"
-    "@typescript-eslint/parser" "^4.7.0"
-    eslint-config-airbnb "^18.2.1"
-    eslint-config-prettier "^6.15.0"
-    eslint-plugin-import "^2.22.1"
-    eslint-plugin-jsx-a11y "^6.4.1"
-    eslint-plugin-react "^7.21.5"
-    eslint-plugin-react-hooks "^4.0.0"
-
-"@pancakeswap-libs/uikit@^0.10.5":
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/@pancakeswap-libs/uikit/-/uikit-0.10.5.tgz#68d8440d23d2350cee3aa9af37e82ba71a8c0658"
-  integrity sha512-T1uikr5ImU3wMMdf5PbYLJTCacdCmzJSkOu+SUmG06OlM6gLvTWsAZeAai9CX4llyEvv1BzQQTDVnwVbPFFoNw==
-  dependencies:
-    "@types/lodash" "^4.14.162"
-    "@types/styled-system" "^5.1.10"
-    lodash "^4.17.20"
-    react-transition-group "^4.4.1"
-    styled-system "^5.1.5"
 
 "@pedrouid/iso-crypto@^1.0.0":
   version "1.1.0"
@@ -6348,6 +6349,11 @@ decamelize@^1.1.0, decamelize@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
+
+decimal.js-light@^2.5.0:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/decimal.js-light/-/decimal.js-light-2.5.1.tgz#134fd32508f19e208f4fb2f8dac0d2626a867934"
+  integrity sha512-qIMFpTMZmny+MMIitAB6D7iVPEorVw6YQRWkvarTkT4tBeSLLiHzcwj6q0MmYSFCiVpiqPJTJEYIrpcPzVEIvg==
 
 decimal.js@^10.2.0:
   version "10.2.1"
@@ -15603,7 +15609,7 @@ timsort@^0.3.0:
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
 
-tiny-invariant@^1.0.2, tiny-invariant@^1.0.6:
+tiny-invariant@^1.0.2, tiny-invariant@^1.0.6, tiny-invariant@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.1.0.tgz#634c5f8efdc27714b7f386c35e6760991d230875"
   integrity sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw==
@@ -15676,6 +15682,11 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     extend-shallow "^3.0.2"
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
+
+toformat@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/toformat/-/toformat-2.0.0.tgz#7a043fd2dfbe9021a4e36e508835ba32056739d8"
+  integrity sha512-03SWBVop6nU8bpyZCx7SodpYznbZF5R4ljwNLBcTQzKOD9xuihRo/psX58llS1BMFhhAI08H3luot5GoXJz2pQ==
 
 toggle-selection@^1.0.6:
   version "1.0.6"

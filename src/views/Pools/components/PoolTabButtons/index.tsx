@@ -4,6 +4,24 @@ import { useRouteMatch, Link } from 'react-router-dom'
 import { ButtonMenu, ButtonMenuItem, Toggle, Text } from '@aliumswap/uikit'
 import useI18n from 'hooks/useI18n'
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+`
+
+const ToggleWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 32px;
+
+  ${Text} {
+    margin-left: 8px;
+  }
+`
+
 const PoolTabButtons = ({ stackedOnly, setStackedOnly }) => {
   const { url, isExact } = useRouteMatch()
   const TranslateString = useI18n()
@@ -27,21 +45,3 @@ const PoolTabButtons = ({ stackedOnly, setStackedOnly }) => {
 }
 
 export default PoolTabButtons
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 32px;
-`
-
-const ToggleWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 32px;
-
-  ${Text} {
-    margin-left: 8px;
-  }
-`

@@ -10,7 +10,7 @@ const StyledTotalValueLockedCard = styled(Card)`
 
 const Divider = styled.div`
   height: 1px;
-  border-bottom: 1px solid #F4F5FA;
+  border-bottom: 1px solid #f4f5fa;
   margin: 20px 0;
 `
 
@@ -22,7 +22,9 @@ const TotalValueLockedCard = () => {
   return (
     <StyledTotalValueLockedCard>
       <CardBody>
-        <Text style={{ fontSize: "18px", lineHeight: "24px", letterSpacing: "0.3px", color: "#0B1359", fontWeight: "bold" }}>
+        <Text
+          style={{ fontSize: '18px', lineHeight: '24px', letterSpacing: '0.3px', color: '#0B1359', fontWeight: 'bold' }}
+        >
           {TranslateString(762, 'Total Value Locked (TVL)')}
         </Text>
         <Divider />

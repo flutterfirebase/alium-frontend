@@ -8,7 +8,7 @@ import { Pool } from 'state/types'
 const StyledFarmStakingCard = styled(Card)`
   background: transparent;
   border-radius: 6px;
-  border: 1px solid #FF72AC;
+  border: 1px solid #ff72ac;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -20,7 +20,7 @@ const StyledFarmStakingCard = styled(Card)`
 
 const Divider = styled.div`
   height: 1px;
-  border-bottom: 1px solid #FF72AC;
+  border-bottom: 1px solid #ff72ac;
 `
 
 const Box = styled.div`
@@ -32,7 +32,7 @@ const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
   font-size: 24px;
   line-height: 30px;
   letter-spacing: 0.3px;
-  color: #FF72AC;
+  color: #ff72ac;
 `
 const EarnAssetCard = () => {
   const activeNonCakePools = pools.filter((pool) => !pool.isFinished && !pool.tokenName.includes('CAKE'))
@@ -43,7 +43,7 @@ const EarnAssetCard = () => {
   return (
     <StyledFarmStakingCard>
       <Flex justifyContent="space-between" padding="24px">
-        <Heading color="contrast" style={{ lineHeight: "24px", fontSize: "18px", letterSpacing: "0.3px" }}>
+        <Heading color="contrast" style={{ lineHeight: '24px', fontSize: '18px', letterSpacing: '0.3px' }}>
           Earn
         </Heading>
         <ArrowForwardIcon color="#FF72AC" />
@@ -52,7 +52,16 @@ const EarnAssetCard = () => {
       <Box>
         <CardMidContent>{assets}</CardMidContent>
         <Flex justifyContent="space-between" alignItems="center">
-          <Heading color="#8990A5" style={{ lineHeight: "20px", fontSize: "16px", letterSpacing: "0.3px", fontWeight: "normal", marginTop: "5px" }}>
+          <Heading
+            color="#8990A5"
+            style={{
+              lineHeight: '20px',
+              fontSize: '16px',
+              letterSpacing: '0.3px',
+              fontWeight: 'normal',
+              marginTop: '5px',
+            }}
+          >
             in Pools
           </Heading>
         </Flex>

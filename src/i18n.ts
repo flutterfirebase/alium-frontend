@@ -9,16 +9,16 @@ i18next
   .use(initReactI18next)
   .init({
     backend: {
-      loadPath: `./locales/{{lng}}.json`
+      loadPath: `/locales/{{lng}}.json`,
     },
     react: {
-      useSuspense: true
+      useSuspense: true,
     },
     fallbackLng: 'en',
     preload: ['en'],
     // keySeparator: false,
     interpolation: { escapeValue: false },
-    lng: "en",
+    lng: 'en',
   })
 
 export default i18next

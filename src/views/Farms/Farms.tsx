@@ -95,7 +95,13 @@ const Farms: React.FC = () => {
 
   return (
     <Page>
-      <Heading as="h1" size="lg" color="heading" mb="50px" style={{ textAlign: 'start', lineHeight: "56px", fontSize: "48px", marginTop: "24px" }}>
+      <Heading
+        as="h1"
+        size="lg"
+        color="heading"
+        mb="50px"
+        style={{ textAlign: 'start', lineHeight: '56px', fontSize: '48px', marginTop: '24px' }}
+      >
         {TranslateString(696, 'Stake LP tokens to earn ALM')}
       </Heading>
       <FarmTabButtons stackedOnly={stackedOnly} setStackedOnly={setStackedOnly} />

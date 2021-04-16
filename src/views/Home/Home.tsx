@@ -70,12 +70,10 @@ import HomeGreetings from './components/HomeGreetings'
 const Home: React.FC = () => {
   return (
     <Page>
-        <HomeGreetings />
+      <HomeGreetings />
     </Page>
   )
 }
-
-
 
 // const HomeCards = () => {
 //   const TranslateString = useI18n()

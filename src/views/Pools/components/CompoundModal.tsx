@@ -14,6 +14,13 @@ interface DepositModalProps {
   tokenName?: string
 }
 
+const BalanceRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+`
+
 const CompoundModal: React.FC<DepositModalProps> = ({ earnings, onConfirm, onDismiss, tokenName = '' }) => {
   const [pendingTx, setPendingTx] = useState(false)
   const TranslateString = useI18n()
@@ -52,10 +59,3 @@ const CompoundModal: React.FC<DepositModalProps> = ({ earnings, onConfirm, onDis
 }
 
 export default CompoundModal
-
-const BalanceRow = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-`
