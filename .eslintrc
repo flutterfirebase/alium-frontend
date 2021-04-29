@@ -12,7 +12,7 @@
     "jest": true
   },
 
-  "extends": "@aliumswap/eslint-config-aliumswap",
+//  "extends": "@aliumswap/eslint-config-aliumswap",
   "rules": {
     "no-console": ["warn", { "allow": ["info", "warn", "error"] }],
     "no-plusplus": 0,

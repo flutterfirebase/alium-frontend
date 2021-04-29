@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Confetti from 'react-confetti'
-import { useWindowSize } from 'react-use'
+import { useWindowSize } from 'react-use/lib'
 
 export default () => {
   const { width, height } = useWindowSize()
