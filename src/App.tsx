@@ -1,7 +1,7 @@
 import React, { useEffect, Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // import { useWallet } from '@binance-chain/bsc-use-wallet'
-import { NotFound, Maintenance, ResetCSS } from '@aliumswap/uikit'
+import { NotFound, Maintenance, ResetCSS } from '@alium-official/uikit'
 import BigNumber from 'bignumber.js'
 import useEagerConnect from 'hooks/useEagerConnect'
 // import { useFetchProfile, useFetchPublicData } from 'state/hooks'

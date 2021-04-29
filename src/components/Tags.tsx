@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tag, VerifiedIcon, CommunityIcon, BinanceIcon } from '@aliumswap/uikit'
+import { Tag, VerifiedIcon, CommunityIcon, BinanceIcon } from '@alium-official/uikit'
 
 const CoreTag = () => (
   <Tag variant="secondary" outline startIcon={<VerifiedIcon />}>

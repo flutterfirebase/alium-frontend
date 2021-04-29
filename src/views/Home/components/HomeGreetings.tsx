@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import Lottie from 'react-lottie-player'
-import { Button, Heading, Text } from '@aliumswap/uikit'
+import { Button, Heading, Text } from '@alium-official/uikit'
 
 import GreetingsConfetti from './GreetingsConfetti'
 import greetingsAnimationJSON from '../../../assets/data/greetings-animation.json'

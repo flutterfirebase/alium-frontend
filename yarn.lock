@@ -2,6 +2,31 @@
 # yarn lockfile v1
 
 
+"@alium-official/sdk@^1.1.10":
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/@alium-official/sdk/-/sdk-1.1.11.tgz#1030528fe1db2d445ffc26b465b18bc86efabd84"
+  integrity sha512-8C5L6XXnmXCBAFwq/T7RN2eJkKv9Cltp4jQDO7Mu4SZO/qj2ZdcNFwKuy5KuCCIGGUQFAdDBrgOYVvf7szvNXw==
+  dependencies:
+    big.js "^5.2.2"
+    decimal.js-light "^2.5.0"
+    jsbi "^3.1.1"
+    tiny-invariant "^1.1.0"
+    tiny-warning "^1.0.3"
+    toformat "^2.0.0"
+
+"@alium-official/uikit@^0.11.49":
+  version "0.11.49"
+  resolved "https://registry.yarnpkg.com/@alium-official/uikit/-/uikit-0.11.49.tgz#4de8a58598fc38a2821ac5fdb5423b789479a0af"
+  integrity sha512-x/4+vstmiDvSn/JZTYvJcEkejpZMgyadttdAaq+EVuncXtv9SlwqPdB2CdkuiYgT5/Tl3aZSL8mW/vljT0w1ZA==
+  dependencies:
+    "@types/lodash" "^4.14.162"
+    "@types/styled-system" "^5.1.10"
+    lodash "^4.17.20"
+    react-loader-spinner "^4.0.0"
+    react-transition-group "^4.4.1"
+    styled-system "^5.1.5"
+    typeface-roboto "^1.1.13"
+
 "@aliumswap/eslint-config-aliumswap@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@aliumswap/eslint-config-aliumswap/-/eslint-config-aliumswap-1.0.0.tgz#5714ec756e8da94692d595f4004dfccc18f0f9d5"
@@ -15,31 +40,6 @@
     eslint-plugin-jsx-a11y "^6.4.1"
     eslint-plugin-react "^7.21.5"
     eslint-plugin-react-hooks "^4.0.0"
-
-"@aliumswap/sdk@^1.1.10":
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/@aliumswap/sdk/-/sdk-1.1.10.tgz#b2b2a226082853dd926c7212ecb85fea48f66d57"
-  integrity sha512-RA4DKcc9AAYKXE1KaDOT/MRE72aQrC3LZ0q5JvNxccOCZNokVyqV+9aQy1gtlYaXftZcaw4CILS6+RBXURvGmg==
-  dependencies:
-    big.js "^5.2.2"
-    decimal.js-light "^2.5.0"
-    jsbi "^3.1.1"
-    tiny-invariant "^1.1.0"
-    tiny-warning "^1.0.3"
-    toformat "^2.0.0"
-
-"@aliumswap/uikit@^0.11.45":
-  version "0.11.45"
-  resolved "https://registry.yarnpkg.com/@aliumswap/uikit/-/uikit-0.11.45.tgz#eb0711955fd20b0b9d5f0a7bba6dd2a1ea9acd94"
-  integrity sha512-FWKyIgk883jZyLAAquonPbFNEZIS9vSOLZtPzm4XCjWcbyFFF5sI3lmm7bS1CoB4O9JH2DNVMD17FHOBVFknQg==
-  dependencies:
-    "@types/lodash" "^4.14.162"
-    "@types/styled-system" "^5.1.10"
-    lodash "^4.17.20"
-    react-loader-spinner "^4.0.0"
-    react-transition-group "^4.4.1"
-    styled-system "^5.1.5"
-    typeface-roboto "^1.1.13"
 
 "@aragon/provided-connector@^6.0.7":
   version "6.0.8"

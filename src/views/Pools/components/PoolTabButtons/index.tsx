@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useRouteMatch, Link } from 'react-router-dom'
-import { ButtonMenu, ButtonMenuItem, Toggle, Text } from '@aliumswap/uikit'
+import { ButtonMenu, ButtonMenuItem, Toggle, Text } from '@alium-official/uikit'
 import useI18n from 'hooks/useI18n'
 
 const Wrapper = styled.div`

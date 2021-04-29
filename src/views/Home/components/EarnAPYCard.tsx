@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Card, Flex, ArrowForwardIcon } from '@aliumswap/uikit'
+import { Heading, Card, Flex, ArrowForwardIcon } from '@alium-official/uikit'
 // import useI18n from 'hooks/useI18n'
 // import BigNumber from 'bignumber.js'
 // import { QuoteToken } from 'config/constants/types'

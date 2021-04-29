@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import orderBy from 'lodash/orderBy'
-import { Heading, Card, Flex, ArrowForwardIcon } from '@aliumswap/uikit'
+import { Heading, Card, Flex, ArrowForwardIcon } from '@alium-official/uikit'
 import pools from 'config/constants/pools'
 import { Pool } from 'state/types'
 

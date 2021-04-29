@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalProvider } from '@aliumswap/uikit'
+import { ModalProvider } from '@alium-official/uikit'
 import { Web3ReactProvider, createWeb3ReactRoot } from '@web3-react/core'
 import { Provider } from 'react-redux'
 import { getLibrary } from 'utils/web3React'

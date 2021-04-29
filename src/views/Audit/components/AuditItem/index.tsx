@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Flex, LinkExternal, Text, ArrowDropDownIcon } from '@aliumswap/uikit'
+import { Flex, LinkExternal, Text, ArrowDropDownIcon } from '@alium-official/uikit'
 // import { BSCScanIcon, GitHubIcon } from '../../../../assets/Icons'
 import images from '../../images/01_Certificate_Aliumswap.png'
 import { BSCScanIcon, GitHubIcon } from '../../svg'

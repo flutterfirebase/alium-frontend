@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, useWalletModal } from '@aliumswap/uikit'
+import { Button, useWalletModal } from '@alium-official/uikit'
 import useAuth from 'hooks/useAuth'
 import useI18n from 'hooks/useI18n'
 
