@@ -275,7 +275,7 @@ const HomeNew = () => {
     <Container>
       <LeftColumn>
         <MotionLeftColumn xInitial={-20} xDuration={0.8}>
-          <StartingSoon>START MAY 1</StartingSoon>
+          <StartingSoon>MAY 10-15</StartingSoon>
         </MotionLeftColumn>
         <MotionLeftColumn xInitial={-60} xDuration={1}>
           <H1>Public Sale</H1>
