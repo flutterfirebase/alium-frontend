@@ -1,6 +1,6 @@
 {
-  "name": "@aliumswap/interface",
-  "description": "Aliumswap Interface",
+  "name": "@alium-official/interface",
+  "description": "Alium Official Interface",
   "version": "0.0.0",
   "private": true,
   "license": "GPL-3.0-or-later",
