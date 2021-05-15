@@ -275,7 +275,7 @@ const HomeNew = () => {
     <Container>
       <LeftColumn>
         <MotionLeftColumn xInitial={-20} xDuration={0.8}>
-          <StartingSoon>MAY 10-15</StartingSoon>
+          <StartingSoon>MAY 18-20</StartingSoon>
         </MotionLeftColumn>
         <MotionLeftColumn xInitial={-60} xDuration={1}>
           <H1>Public Sale</H1>
@@ -284,7 +284,7 @@ const HomeNew = () => {
           <H2>Have time to add yourself to the whitelist.</H2>
         </MotionLeftColumn>
         <MotionLeftColumn xInitial={-50} xDuration={1.1}>
-          <a href="/">
+          <a href="https://forms.gle/moM9K8zcYGqUPsMM7">
             <ActionButton>Add to whitelist</ActionButton>
           </a>
         </MotionLeftColumn>
