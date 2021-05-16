@@ -1,6 +1,10 @@
-name: CI/CD
+name: dev
 
-on: [workflow_dispatch]
+on:
+  push:
+    branches:
+      - develop
+      - master
 
 jobs:
   build:
@@ -31,9 +35,20 @@ jobs:
           name: build
           path: build
 
-  deploy:
+  deploy_dev:
     needs: build
-    runs-on: [self-hosted, prod]
+    if: github.ref == 'refs/heads/develop'
+    runs-on: [self-hosted, dev]
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: build
+      - run: cp -r ./ ~/$GITHUB_REPOSITORY
+
+  deploy_stage:
+    needs: build
+    if: github.ref == 'refs/heads/master'
+    runs-on: [self-hosted, stage]
     steps:
       - uses: actions/download-artifact@v2
         with:
