@@ -5,7 +5,11 @@ on:
     branches:
       - develop
       - master
-
+  pull_request:
+    branches:      
+      - develop
+      - master
+      
 jobs:
   build:
     runs-on: ubuntu-18.04
