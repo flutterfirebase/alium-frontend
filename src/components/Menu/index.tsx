@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { ChainId } from '@alium-official/sdk'
-import { Menu as UikitMenu, MenuEntry } from '@alium-official/uikit'
+import { externalLinks, Menu as UikitMenu, MenuEntry } from '@alium-official/uikit'
 // import { useWeb3React } from '@web3-react/core'
 import { Route, RouteProps } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -81,7 +81,7 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
         // },
         {
           label: t('mainMenu.github'),
-          href: 'https://github.com/alium-official',
+          href: externalLinks.github,
         },
         // {
         //   label: 'Docs',
@@ -93,7 +93,7 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
         },
         {
           label: t('mainMenu.blog'),
-          href: 'https://medium.com/@aliumswap',
+          href: externalLinks.medium,
         },
       ],
     },

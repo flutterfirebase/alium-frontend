@@ -1,18 +1,15 @@
 {
-  "name": "@alium-official/interface",
-  "description": "Alium Official Interface",
-  "version": "0.0.0",
+  "name": "@alium-finance/alium-frontend",
   "private": true,
-  "license": "GPL-3.0-or-later",
+  "description": "Alium Finance Frontend",
   "homepage": ".",
-  "resolutions": {
-    "@walletconnect/web3-provider": "1.1.1-alpha.0"
-  },
+  "license": "GPL-3.0-or-later",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3002 dotenv -e .env.production react-scripts start",
+    "start:dev": "dotenv -e .env.development react-scripts start",
     "build": "dotenv -e .env.production react-scripts build",
     "build:dev": "dotenv -e .env.development react-scripts build",
-    "serve:dev": "serve -s build -l 3000",
+    "serve:3000": "serve -s build -l 3000",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
@@ -20,9 +17,24 @@
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
     "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'"
   },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "resolutions": {
+    "@walletconnect/web3-provider": "1.1.1-alpha.0"
+  },
   "dependencies": {
     "@alium-official/sdk": "^1.1.11",
-    "@alium-official/uikit": "^0.11.50",
+    "@alium-official/uikit": "^0.11.54",
     "@binance-chain/bsc-connector": "^1.0.3",
     "@crowdin/crowdin-api-client": "^1.10.6",
     "@ethersproject/experimental": "^5.1.2",
@@ -55,7 +67,7 @@
     "bignumber.js": "^9.0.1",
     "cids": "^1.1.6",
     "copy-to-clipboard": "^3.3.1",
-    "dotenv": "^8.2.0",
+    "dotenv-cli": "^4.0.0",
     "ethers": "^5.1.4",
     "framer-motion": "^4.1.11",
     "i18next": "^20.2.2",
@@ -95,22 +107,12 @@
     "@types/jest": "^26.0.23",
     "@types/testing-library__cypress": "^5.0.8",
     "cypress": "^4.12.1",
-    "eslint": "^7.25.0",
-    "prettier": "^2.2.1",
+    "eslint": "^7.26.0",
+    "prettier": "^2.3.0",
+    "prettier-plugin-organize-imports": "^2.0.0",
+    "prettier-plugin-packagejson": "^2.2.11",
     "qs": "^6.10.1",
     "serve": "^11.3.2",
     "start-server-and-test": "^1.12.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }
