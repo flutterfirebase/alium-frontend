@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { provider as ProviderType } from 'web3-core'
 import { getContract } from 'utils/erc20'
 import { getAddress } from 'utils/addressHelpers'
-import { Button, Flex, Text } from '@aliumswap/uikit'
+import { Button, Flex, Text } from '@alium-official/uikit'
 import { Farm } from 'state/types'
 import { useFarmFromSymbol, useFarmUser } from 'state/hooks'
 import useI18n from 'hooks/useI18n'
@@ -62,7 +62,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, provider, account, 
         addLiquidityUrl={addLiquidityUrl}
       />
     ) : (
-      <Button mt="8px" fullWidth disabled={requestedApproval} onClick={handleApprove}>
+      <Button mt="8px" fullwidth disabled={requestedApproval} onClick={handleApprove}>
         {TranslateString(758, 'Approve Contract')}
       </Button>
     )
@@ -88,7 +88,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, provider, account, 
           {TranslateString(1074, 'Staked')}
         </Text>
       </Flex>
-      {!account ? <UnlockButton mt="8px" fullWidth /> : renderApprovalOrStakeButton()}
+      {!account ? <UnlockButton mt="8px" fullwidth /> : renderApprovalOrStakeButton()}
     </Action>
   )
 }

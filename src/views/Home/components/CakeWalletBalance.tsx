@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from '@aliumswap/uikit'
+import { Text } from '@alium-official/uikit'
 import { useWeb3React } from '@web3-react/core'
 import useTokenBalance from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
@@ -18,7 +18,7 @@ const CakeWalletBalance = () => {
 
   if (!account) {
     return (
-      <Text color="textDisabled" style={{ lineHeight: '1.5px', marginTop: "20px", marginBottom: "55px" }}>
+      <Text color="textDisabled" style={{ lineHeight: '1.5px', marginTop: '20px', marginBottom: '55px' }}>
         {TranslateString(298, 'Locked')}
       </Text>
     )

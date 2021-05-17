@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Card, CardBody, Button, Text } from '@aliumswap/uikit'
+import { Card, CardBody, Button, Text } from '@alium-official/uikit'
 import { useWeb3React } from '@web3-react/core'
 import useI18n from 'hooks/useI18n'
 import { useAllHarvest } from 'hooks/useHarvest'
@@ -10,7 +10,7 @@ import CakeHarvestBalance from './CakeHarvestBalance'
 import CakeWalletBalance from './CakeWalletBalance'
 
 const StyledFarmStakingCard = styled(Card)`
-  background-color: #6C5DD3;
+  background-color: #6c5dd3;
   background-image: url('/images/farms-bg.svg');
   background-repeat: no-repeat;
   background-position: top right;
@@ -85,7 +85,16 @@ const FarmedStakingCard = () => {
         </Heading> */}
         <HeadingBox>
           <CardImage src="/images/farms-icon.svg" alt="icon" width="48px" height="48px" />
-          <Text color="white" style={{ marginLeft: "16px", lineHeight: '30px', fontSize: "24px", fontWeight: "bold", letterSpacing: "0.3" }}>
+          <Text
+            color="white"
+            style={{
+              marginLeft: '16px',
+              lineHeight: '30px',
+              fontSize: '24px',
+              fontWeight: 'bold',
+              letterSpacing: '0.3',
+            }}
+          >
             {TranslateString(298, 'Farms & Staking')}
           </Text>
         </HeadingBox>
@@ -106,14 +115,14 @@ const FarmedStakingCard = () => {
               id="harvest-all"
               disabled={balancesWithValue.length <= 0 || pendingTx}
               onClick={harvestAllFarms}
-              fullWidth
+              fullwidth
             >
               {pendingTx
                 ? TranslateString(548, 'Collecting CAKE')
                 : TranslateString(532, `Harvest all (${balancesWithValue.length})`)}
             </Button>
           ) : (
-            <UnlockButton variant="tertiary" fullWidth />
+            <UnlockButton variant="tertiary" fullwidth />
           )}
         </Actions>
       </CardBody>

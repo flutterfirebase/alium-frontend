@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Card, Flex, ArrowForwardIcon } from '@aliumswap/uikit'
+import { Heading, Card, Flex, ArrowForwardIcon } from '@alium-official/uikit'
 // import useI18n from 'hooks/useI18n'
 // import BigNumber from 'bignumber.js'
 // import { QuoteToken } from 'config/constants/types'
@@ -10,7 +10,7 @@ import { Heading, Card, Flex, ArrowForwardIcon } from '@aliumswap/uikit'
 const StyledFarmStakingCard = styled(Card)`
   background: transparent;
   border-radius: 6px;
-  border: 1px solid #24BA7B;
+  border: 1px solid #24ba7b;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -23,7 +23,7 @@ const StyledFarmStakingCard = styled(Card)`
 
 const Divider = styled.div`
   height: 1px;
-  border-bottom: 1px solid #24BA7B;
+  border-bottom: 1px solid #24ba7b;
 `
 
 const Box = styled.div`
@@ -35,7 +35,7 @@ const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
   font-size: 24px;
   line-height: 30px;
   letter-spacing: 0.3px;
-  color: #24BA7B;
+  color: #24ba7b;
 `
 const EarnAPYCard = () => {
   // const TranslateString = useI18n()
@@ -93,7 +93,7 @@ const EarnAPYCard = () => {
   return (
     <StyledFarmStakingCard>
       <Flex justifyContent="space-between" padding="24px">
-        <Heading color="contrast" style={{ lineHeight: "24px", fontSize: "18px", letterSpacing: "0.3px" }}>
+        <Heading color="contrast" style={{ lineHeight: '24px', fontSize: '18px', letterSpacing: '0.3px' }}>
           Earn up to
         </Heading>
         <ArrowForwardIcon color="#24BA7B" />
@@ -102,18 +102,27 @@ const EarnAPYCard = () => {
       <Box>
         <CardMidContent color="#7645d9">
           {/* {getHighestAPY() ? ( */}
-            {/* `${getHighestAPY()}% ${TranslateString(736, 'APR')}` */}
+          {/* `${getHighestAPY()}% ${TranslateString(736, 'APR')}` */}
           {/* // ) : ( */}
           1,447.19% APR
-            {/* // <Skeleton animation="pulse" variant="rect" height="44px" /> */}
+          {/* // <Skeleton animation="pulse" variant="rect" height="44px" /> */}
           {/* // )} */}
         </CardMidContent>
         <Flex justifyContent="space-between">
-          <Heading color="#8990A5" style={{ lineHeight: "20px", fontSize: "16px", letterSpacing: "0.3px", fontWeight: "normal", marginTop: "5px" }}>
+          <Heading
+            color="#8990A5"
+            style={{
+              lineHeight: '20px',
+              fontSize: '16px',
+              letterSpacing: '0.3px',
+              fontWeight: 'normal',
+              marginTop: '5px',
+            }}
+          >
             in Farms
           </Heading>
         </Flex>
-    </Box>
+      </Box>
     </StyledFarmStakingCard>
   )
 }

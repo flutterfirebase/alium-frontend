@@ -1,7 +1,7 @@
 import React from 'react'
 // import styled from 'styled-components'
-// import { Heading, Text, BaseLayout } from '@aliumswap/uikit'
-// import { BaseLayout } from '@aliumswap/uikit'
+// import { Heading, Text, BaseLayout } from '@alium-official/uikit'
+// import { BaseLayout } from '@alium-official/uikit'
 // import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
 // import FarmStakingCard from 'views/Home/components/FarmStakingCard'
@@ -11,7 +11,7 @@ import Page from 'components/layout/Page'
 // import EarnAPYCard from 'views/Home/components/EarnAPYCard'
 // import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 // import WinCard from 'views/Home/components/WinCard'
-import HomeGreetings from './components/HomeGreetings'
+import HomeNew from './components/HomeNew'
 
 // const Hero = styled.div`
 //   background-repeat: no-repeat;
@@ -70,12 +70,10 @@ import HomeGreetings from './components/HomeGreetings'
 const Home: React.FC = () => {
   return (
     <Page>
-        <HomeGreetings />
+      <HomeNew />
     </Page>
   )
 }
-
-
 
 // const HomeCards = () => {
 //   const TranslateString = useI18n()

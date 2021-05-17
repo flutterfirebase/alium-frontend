@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import React, { useMemo, useState } from 'react'
-import { Button, Modal } from '@aliumswap/uikit'
+import { Button, Modal } from '@alium-official/uikit'
 import ModalActions from 'components/ModalActions'
 import Balance from 'components/Balance'
 import useI18n from 'hooks/useI18n'
@@ -13,6 +13,13 @@ interface DepositModalProps {
   onDismiss?: () => void
   tokenName?: string
 }
+
+const BalanceRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+`
 
 const CompoundModal: React.FC<DepositModalProps> = ({ earnings, onConfirm, onDismiss, tokenName = '' }) => {
   const [pendingTx, setPendingTx] = useState(false)
@@ -30,12 +37,12 @@ const CompoundModal: React.FC<DepositModalProps> = ({ earnings, onConfirm, onDis
         <Balance value={Number(fullBalance)} />
       </BalanceRow>
       <ModalActions>
-        <Button fullWidth variant="secondary" onClick={onDismiss}>
+        <Button fullwidth variant="secondary" onClick={onDismiss}>
           {TranslateString(462, 'Cancel')}
         </Button>
         <Button
           id="compound-cake"
-          fullWidth
+          fullwidth
           disabled={pendingTx}
           onClick={async () => {
             setPendingTx(true)
@@ -52,10 +59,3 @@ const CompoundModal: React.FC<DepositModalProps> = ({ earnings, onConfirm, onDis
 }
 
 export default CompoundModal
-
-const BalanceRow = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-`

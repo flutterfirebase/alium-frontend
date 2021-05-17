@@ -6,13 +6,13 @@ interface LabelProps {
   isFinished?: boolean
 }
 
-const Label: React.FC<LabelProps> = ({ text, isFinished = false }) => (
-  <StyledLabel isFinished={isFinished}>{text}</StyledLabel>
-)
-
 const StyledLabel = styled.div<{ isFinished: boolean }>`
   color: ${({ isFinished, theme }) => theme.colors[isFinished ? 'textDisabled' : 'primary']};
   font-size: 14px;
 `
+
+const Label: React.FC<LabelProps> = ({ text, isFinished = false }) => (
+  <StyledLabel isFinished={isFinished}>{text}</StyledLabel>
+)
 
 export default Label

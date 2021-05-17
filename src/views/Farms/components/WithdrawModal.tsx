@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 import React, { useCallback, useMemo, useState } from 'react'
-import { Button, Modal } from '@aliumswap/uikit'
+import { Button, Modal } from '@alium-official/uikit'
 import ModalActions from 'components/ModalActions'
 import ModalInput from 'components/ModalInput'
 import useI18n from 'hooks/useI18n'
@@ -43,7 +43,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({ onConfirm, onDismiss, max
         inputTitle={TranslateString(588, 'Unstake')}
       />
       <ModalActions>
-        <Button variant="secondary" onClick={onDismiss} fullWidth>
+        <Button variant="secondary" onClick={onDismiss} fullwidth>
           {TranslateString(462, 'Cancel')}
         </Button>
         <Button
@@ -54,7 +54,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({ onConfirm, onDismiss, max
             setPendingTx(false)
             onDismiss()
           }}
-          fullWidth
+          fullwidth
         >
           {pendingTx ? TranslateString(488, 'Pending Confirmation') : TranslateString(464, 'Confirm')}
         </Button>

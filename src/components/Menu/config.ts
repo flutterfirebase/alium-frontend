@@ -1,4 +1,4 @@
-import { MenuEntry } from '@aliumswap/uikit'
+import { MenuEntry } from '@alium-official/uikit'
 
 const config: MenuEntry[] = [
   {
@@ -96,7 +96,7 @@ const config: MenuEntry[] = [
       // },
       {
         label: 'Github',
-        href: 'https://github.com/Aliumswap',
+        href: 'https://github.com/alium-official',
       },
       {
         label: 'Docs',

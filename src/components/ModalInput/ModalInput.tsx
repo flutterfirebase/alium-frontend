@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, Button, Input, InputProps, Flex, Link } from '@aliumswap/uikit'
+import { Text, Button, Input, InputProps, Flex, Link } from '@alium-official/uikit'
 import useI18n from '../../hooks/useI18n'
 
 interface ModalInputProps {

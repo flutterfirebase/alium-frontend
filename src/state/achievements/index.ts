@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { toastTypes } from '@aliumswap/uikit'
+import { toastTypes } from '@alium-official/uikit'
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit'
 import { kebabCase } from 'lodash'
 import { push } from 'state/toasts'

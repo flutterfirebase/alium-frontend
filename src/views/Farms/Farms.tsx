@@ -3,7 +3,7 @@ import { Route, useRouteMatch } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { Image, Heading } from '@aliumswap/uikit'
+import { Image, Heading } from '@alium-official/uikit'
 import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
@@ -95,7 +95,13 @@ const Farms: React.FC = () => {
 
   return (
     <Page>
-      <Heading as="h1" size="lg" color="heading" mb="50px" style={{ textAlign: 'start', lineHeight: "56px", fontSize: "48px", marginTop: "24px" }}>
+      <Heading
+        as="h1"
+        size="lg"
+        color="heading"
+        mb="50px"
+        style={{ textAlign: 'start', lineHeight: '56px', fontSize: '48px', marginTop: '24px' }}
+      >
         {TranslateString(696, 'Stake LP tokens to earn ALM')}
       </Heading>
       <FarmTabButtons stackedOnly={stackedOnly} setStackedOnly={setStackedOnly} />
