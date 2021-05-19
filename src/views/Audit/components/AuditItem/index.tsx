@@ -1,18 +1,14 @@
-import React, { useState } from 'react'
+import { ArrowDropDownIcon,Flex,LinkExternal,Text } from '@alium-official/uikit'
+import React,{ useState } from 'react'
 import styled from 'styled-components'
-import { Flex, LinkExternal, Text, ArrowDropDownIcon } from '@alium-official/uikit'
 // import { BSCScanIcon, GitHubIcon } from '../../../../assets/Icons'
-import images from '../../images/01_Certificate_Aliumswap.png'
-import { BSCScanIcon, GitHubIcon } from '../../svg'
-import chainsultingImage from '../../images/chainsulting.png'
-import certikImage from '../../images/certik.png'
-import securityAssesmentImage from '../../images/02_Certificate_Aliumswap.png'
+import { BSCScanIcon,GitHubIcon } from '../../svg'
 
 const StyledContainer = styled.div`
   max-width: 738px;
   height: 275px;
-  
-  background: #FFFFFF;
+
+  background: #ffffff;
   padding: 24px;
   border-radius: 6px;
   @media screen and (max-width: 740px) {
@@ -26,13 +22,13 @@ const StyledImage = styled.img<{ type?: string }>`
   object-fit: contain;
   height: 172px;
   padding: 6px;
-  border: 1px solid #F5F7FF;
+  border: 1px solid #f5f7ff;
   box-sizing: border-box;
   border-radius: 6px;
-  ${({type})=> type === 'center' ? 'display: none;' : ''}
-  
+  ${({ type }) => (type === 'center' ? 'display: none;' : '')}
+
   @media screen and (max-width: 740px) {
-    ${({type})=> type === 'center' ? 'display: block;height: 100%;' : 'display: none;'}
+    ${({ type }) => (type === 'center' ? 'display: block;height: 100%;' : 'display: none;')}
   }
 `
 
@@ -55,10 +51,10 @@ const StyledFlex = styled(Flex)`
     margin-bottom: 8px;
   }
   @media screen and (max-width: 740px) {
-     margin-bottom: 16px;
-     > div:not(:last-child) {
-       margin-bottom: 0;
-     }
+    margin-bottom: 16px;
+    > div:not(:last-child) {
+      margin-bottom: 0;
+    }
   }
 `
 
@@ -74,22 +70,22 @@ const StyledContainerFlex = styled(Flex)`
   }
 `
 
-const StyledDestribution = styled(Flex)<{type?: string}>`
- ${({type})=> type === 'header' ? '' : 'display: none;'}
+const StyledDestribution = styled(Flex)<{ type?: string }>`
+  ${({ type }) => (type === 'header' ? '' : 'display: none;')}
   @media screen and (max-width: 740px) {
-    ${({type})=> type === 'header' ? 'display: none;' : 'display: flex;margin-bottom: 24px;'}
+    ${({ type }) => (type === 'header' ? 'display: none;' : 'display: flex;margin-bottom: 24px;')}
   }
 `
 
 const StyledHeadline = styled(Text)`
- @media screen and (max-width: 740px) {
+  @media screen and (max-width: 740px) {
     font-size: 16px;
     font-weight: 500;
- }
+  }
 `
 
 const StyledBorderedFlex = styled(Flex)`
-  border-bottom: 1px solid #F5F7FF;
+  border-bottom: 1px solid #f5f7ff;
   padding-bottom: 16px;
   @media screen and (max-width: 740px) {
     border: none;
@@ -98,19 +94,19 @@ const StyledBorderedFlex = styled(Flex)`
 `
 
 const FooterFlex = styled(Flex)`
-   @media screen and (max-width: 740px) {
-      flex-direction: column;
-      > a:first-child {
-        margin-bottom: 8px;
-      }
-   }
+  @media screen and (max-width: 740px) {
+    flex-direction: column;
+    > a:first-child {
+      margin-bottom: 8px;
+    }
+  }
 `
 
 const StyledArrowDropDownIcon = styled(ArrowDropDownIcon)`
-   display: none;
-   @media screen and (max-width: 740px) {
+  display: none;
+  @media screen and (max-width: 740px) {
     display: block;
-   }
+  }
 `
 
 const StyledText = styled(Text)`
@@ -121,57 +117,93 @@ const StyledText = styled(Text)`
   }
 `
 
-const AuditItem = ({headline, date, gitHubCertificate, detailedReport, gitHubCerificatePDF, bscScan, distribution}) => {
-
-  const [isOpened, setIsOpened] = useState(true);
+const AuditItem = ({
+  headline,
+  date,
+  gitHubCertificate,
+  detailedReport,
+  gitHubCerificatePDF,
+  bscScan,
+  distribution,
+  image,
+  headImg,
+}) => {
+  const [isOpened, setIsOpened] = useState(true)
 
   return (
     <StyledContainer>
-      <StyledContainerFlex justifyContent="space-between" style={{height: '100%'}}>
-        <Flex flexDirection="column" justifyContent="space-between" style={{height: '100%'}}>
+      <StyledContainerFlex justifyContent="space-between" style={{ height: '100%' }}>
+        <Flex flexDirection="column" justifyContent="space-between" style={{ height: '100%' }}>
           <StyledBorderedFlex flexDirection="column" justifyContent="space-between">
             <StyledDestribution alignItems="center" type="header">
               <StyledImageContainer>
-                <img src={distribution === 'Chainsulting' ? chainsultingImage : certikImage} alt='' />
+                <img src={headImg} alt="" />
               </StyledImageContainer>
-              <Text color="#8990A5" fontSize="14px">{distribution === 'Chainsulting' ? 'Chainsulting' : 'CertiK Security Leaderboard'}</Text>
+              <Text color="#8990A5" fontSize="14px">
+                {distribution === 'Chainsulting' ? 'Chainsulting' : 'CertiK Security Leaderboard'}
+              </Text>
             </StyledDestribution>
             <Flex justifyContent="space-between" alignItems="center">
-              <StyledHeadline color="#0B1359" fontSize="24px">{headline}</StyledHeadline>
-              <StyledArrowDropDownIcon onClick={()=>setIsOpened(!isOpened)} style={isOpened ? {transform: 'rotate(180deg)'} : {}}/>
+              <StyledHeadline color="#0B1359" fontSize="24px">
+                {headline}
+              </StyledHeadline>
+              <StyledArrowDropDownIcon
+                onClick={() => setIsOpened(!isOpened)}
+                style={isOpened ? { transform: 'rotate(180deg)' } : {}}
+              />
             </Flex>
-            <Text color="#8990A5" fontSize="14px">{date}</Text>
+            <Text color="#8990A5" fontSize="14px">
+              {date}
+            </Text>
           </StyledBorderedFlex>
-          {isOpened &&
+          {isOpened && (
             <>
               <StyledDestribution alignItems="center">
                 <StyledImageContainer>
-                  <img src={distribution === 'Chainsulting' ? chainsultingImage : certikImage} alt='' />
+                  <img src={headImg} alt="" />
                 </StyledImageContainer>
-                <Text color="#8990A5" fontSize="14px">{distribution === 'Chainsulting' ? 'Chainsulting' : 'CertiK Security Leaderboard'}</Text>
+                <Text color="#8990A5" fontSize="14px">
+                  {distribution === 'Chainsulting' ? 'Chainsulting' : 'CertiK Security Leaderboard'}
+                </Text>
               </StyledDestribution>
-              <StyledImage src={distribution === 'Chainsulting' ? images : securityAssesmentImage} alt="" type="center"/>
+              <StyledImage src={image} alt="" type="center" />
               <StyledFlex flexDirection="column">
-                <Flex alignItems="center">
-                  <GitHubIcon style={{marginRight: '4px'}} />
-                  <StyledText fontSize="14px">On Github:  <StyledLinkExternal paddingRight="16px" href={gitHubCertificate}>{gitHubCertificate ? `${gitHubCertificate.slice(0, 30)}...` : ''}</StyledLinkExternal></StyledText>
-                </Flex>
-                {bscScan && <Flex alignItems="center">
-                  <BSCScanIcon style={{ marginRight: '4px' }} />
-                  <StyledText fontSize="14px">On BscScan: <StyledLinkExternal paddingRight="16px"
-                                                                        href={bscScan}>{bscScan ? `${bscScan.slice(0, 30)}...` : ''}</StyledLinkExternal></StyledText>
-                </Flex>}
+                {gitHubCertificate && (
+                  <Flex alignItems="center">
+                    <GitHubIcon style={{ marginRight: '4px' }} />
+                    <StyledText fontSize="14px">
+                      On Github:{' '}
+                      <StyledLinkExternal paddingRight="16px" href={gitHubCertificate}>
+                        {gitHubCertificate ? `${gitHubCertificate.slice(0, 30)}...` : ''}
+                      </StyledLinkExternal>
+                    </StyledText>
+                  </Flex>
+                )}
+                {bscScan && (
+                  <Flex alignItems="center">
+                    <BSCScanIcon style={{ marginRight: '4px' }} />
+                    <StyledText fontSize="14px">
+                      On BscScan:{' '}
+                      <StyledLinkExternal paddingRight="16px" href={bscScan}>
+                        {bscScan ? `${bscScan.slice(0, 30)}...` : ''}
+                      </StyledLinkExternal>
+                    </StyledText>
+                  </Flex>
+                )}
               </StyledFlex>
               <FooterFlex>
-                {gitHubCerificatePDF && <StyledLinkExternal paddingRight="16px" href={gitHubCerificatePDF}>GitHub Cerificate
-                  PDF</StyledLinkExternal>}
+                {gitHubCerificatePDF && (
+                  <StyledLinkExternal paddingRight="16px" href={gitHubCerificatePDF}>
+                    GitHub Cerificate PDF
+                  </StyledLinkExternal>
+                )}
                 <StyledLinkExternal href={detailedReport}>Detailed report</StyledLinkExternal>
               </FooterFlex>
             </>
-          }
+          )}
         </Flex>
         {/* <h1>Avatar</h1> */}
-        <StyledImage src={distribution === 'Chainsulting' ? images : securityAssesmentImage} alt=""/>
+        <StyledImage src={image} alt="" />
       </StyledContainerFlex>
     </StyledContainer>
   )
