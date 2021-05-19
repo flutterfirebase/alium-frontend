@@ -1,6 +1,6 @@
+import { Text } from '@alium-official/uikit'
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from '@alium-official/uikit'
 import AuditItem from './components/AuditItem'
 import audits from './constants/audits'
 
@@ -50,12 +50,14 @@ const AuditPage = () => {
 
   return (
     <StyledWrapper>
-    <ContentHolder>
-      <CardWrapper>
-        <StyledText fontSize="48px" style={{fontWeight: 700, marginBottom: '24px', marginTop: '40px'}}>Our completed audits</StyledText>
+      <ContentHolder>
+        <CardWrapper>
+          <StyledText fontSize="48px" style={{ fontWeight: 700, marginBottom: '24px', marginTop: '40px' }}>
+            Our completed audits
+          </StyledText>
 
           <AuditListContainer>
-            {audits.map((audit)=>
+            {audits.map((audit) => (
               <AuditItem
                 headline={audit.headline}
                 date={audit.date}
@@ -64,11 +66,13 @@ const AuditPage = () => {
                 gitHubCerificatePDF={audit.gitHubCerificatePDF}
                 bscScan={audit.bscScan}
                 distribution={audit.distribution}
+                image={audit.image}
+                headImg={audit.headImg}
               />
-            )}
+            ))}
           </AuditListContainer>
-      </CardWrapper>
-    </ContentHolder>
+        </CardWrapper>
+      </ContentHolder>
     </StyledWrapper>
   )
 }
