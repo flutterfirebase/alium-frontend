@@ -1,6 +1,6 @@
+import { motion } from 'framer-motion'
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
 
 const Container = styled.div`
   display: flex;
@@ -278,14 +278,14 @@ const HomeNew = () => {
           <StartingSoon>MAY 18-20</StartingSoon>
         </MotionLeftColumn>
         <MotionLeftColumn xInitial={-60} xDuration={1}>
-          <H1>Public Sale</H1>
+          <H1>Public Sale LIVE</H1>
         </MotionLeftColumn>
-        <MotionLeftColumn xInitial={-40} xDuration={0.8}>
+        {/* <MotionLeftColumn xInitial={-40} xDuration={0.8}>
           <H2>Have time to add yourself to the whitelist.</H2>
-        </MotionLeftColumn>
+        </MotionLeftColumn> */}
         <MotionLeftColumn xInitial={-50} xDuration={1.1}>
-          <a href="https://forms.gle/moM9K8zcYGqUPsMM7">
-            <ActionButton>Add to whitelist</ActionButton>
+          <a href="https://public.alium.finance">
+            <ActionButton>Public Sale</ActionButton>
           </a>
         </MotionLeftColumn>
         <Cards>
