@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@alium-official/sdk": "^1.1.11",
-    "@alium-official/uikit": "^0.11.56",
+    "@alium-official/uikit": "^0.11.57",
     "@binance-chain/bsc-connector": "^1.0.3",
     "@crowdin/crowdin-api-client": "^1.10.6",
     "@ethersproject/experimental": "^5.1.2",
@@ -94,6 +94,7 @@
     "react-scripts": "^4.0.3",
     "react-spring": "^8.0.27",
     "react-use": "^17.2.4",
+    "react-use-intercom": "^1.2.0",
     "react-virtualized-auto-sizer": "^1.0.5",
     "react-window": "^1.8.6",
     "rebass": "^4.0.7",
