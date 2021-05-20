@@ -14,7 +14,11 @@ const Web3ProviderNetwork = createWeb3ReactRoot('NETWORK')
 
 const Providers: React.FC = ({ children }) => {
   return (
-    <IntercomProvider appId="xmg0sc43">
+    <IntercomProvider
+      appId={process.env.REACT_APP_INTERCOM_APP_ID}
+      autoBoot
+      shouldInitialize={!!process.env.REACT_APP_INTERCOM_APP_ID}
+    >
       <Web3ReactProvider getLibrary={getLibrary}>
         <Web3ProviderNetwork getLibrary={getLibrary}>
           <Provider store={store}>

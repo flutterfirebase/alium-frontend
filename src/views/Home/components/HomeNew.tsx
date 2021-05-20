@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import React, { FC, useEffect } from 'react'
-import { useIntercom } from 'react-use-intercom'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -272,13 +271,6 @@ const MotionLeftColumn: FC<{
 )
 
 const HomeNew = () => {
-  const { boot, shutdown } = useIntercom()
-  useEffect(() => {
-    boot()
-    return () => {
-      shutdown()
-    }
-  }, [])
   return (
     <Container>
       <LeftColumn>
