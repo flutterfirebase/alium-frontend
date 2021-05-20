@@ -1,16 +1,16 @@
-import React, { useEffect, Suspense, lazy } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // import { useWallet } from '@binance-chain/bsc-use-wallet'
-import { NotFound, Maintenance, ResetCSS } from '@alium-official/uikit'
+import { Maintenance, NotFound, ResetCSS } from '@alium-official/uikit'
 import BigNumber from 'bignumber.js'
 import useEagerConnect from 'hooks/useEagerConnect'
+import React, { lazy, Suspense, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { MenuWrappedRoute } from './components/Menu'
+import PageLoader from './components/PageLoader'
+import ToastListener from './components/ToastListener'
 // import { useFetchProfile, useFetchPublicData } from 'state/hooks'
 import GlobalStyle from './style/Global'
-import { MenuWrappedRoute } from './components/Menu'
-import ToastListener from './components/ToastListener'
-import PageLoader from './components/PageLoader'
-import Pools from './views/Pools'
 import AuditPage from './views/Audit'
+import Pools from './views/Pools'
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page'
@@ -33,6 +33,7 @@ BigNumber.config({
 const App: React.FC = () => {
   // Monkey patch warn() because of web3 flood
   // To be removed when web3 1.3.5 is released
+
   useEffect(() => {
     console.warn = () => null
   }, [])
@@ -92,7 +93,7 @@ const App: React.FC = () => {
             <Maintenance />
           </Route>
           <MenuWrappedRoute loginBlockVisible={loginBlockHidden}>
-            <NotFound redirectURL={process.env.REACT_APP_HOME_URL}/>
+            <NotFound redirectURL={process.env.REACT_APP_HOME_URL} />
           </MenuWrappedRoute>
         </Switch>
         <ToastListener />
@@ -100,7 +101,5 @@ const App: React.FC = () => {
     </Router>
   )
 }
-
-
 
 export default React.memo(App)
