@@ -1,15 +1,15 @@
-import React, { FC } from 'react'
 import { ChainId } from '@alium-official/sdk'
 import { externalLinks, Menu as UikitMenu, MenuEntry } from '@alium-official/uikit'
-// import { useWeb3React } from '@web3-react/core'
-import { Route, RouteProps } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import useTheme from 'hooks/useTheme'
+import useActiveWeb3React from 'hooks'
 import useAuth from 'hooks/useAuth'
 import useCurrencyBalance from 'hooks/useCurrencyBalance'
+import useTheme from 'hooks/useTheme'
 import useWeb3 from 'hooks/useWeb3'
+import React, { FC } from 'react'
+import { useTranslation } from 'react-i18next'
+// import { useWeb3React } from '@web3-react/core'
+import { Route, RouteProps } from 'react-router-dom'
 import { getExplorerLink, getExplorerName } from 'utils'
-import useActiveWeb3React from 'hooks'
 
 type PropsType = {
   loginBlockVisible?: boolean
@@ -49,6 +49,7 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
         },
       ],
     },
+    { label: 'Token holder area', icon: 'PrivateRoundIcon', href: process.env.REACT_APP_ACCOUNT_LINK || '' },
     // {
     //   label: 'Analytics',
     //   icon: 'InfoIcon',

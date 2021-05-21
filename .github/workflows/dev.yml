@@ -11,7 +11,8 @@ on:
       - master
       
 jobs:
-  build:
+  build_dev:
+    if: github.ref == 'refs/heads/develop'  
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2.1.1
@@ -40,7 +41,7 @@ jobs:
           path: build
 
   deploy_dev:
-    needs: build
+    needs: build_dev
     if: github.ref == 'refs/heads/develop'
     runs-on: [self-hosted, dev]
     steps:
