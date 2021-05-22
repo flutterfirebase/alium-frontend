@@ -49,7 +49,7 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
         },
       ],
     },
-    { label: 'Token holder area', icon: 'PrivateRoundIcon', href: process.env.REACT_APP_ACCOUNT_LINK || '' },
+    //{ label: 'Token holder area', icon: 'PrivateRoundIcon', href: process.env.REACT_APP_ACCOUNT_LINK || '' },
     // {
     //   label: 'Analytics',
     //   icon: 'InfoIcon',
