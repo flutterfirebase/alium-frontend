@@ -14,14 +14,15 @@
     tiny-warning "^1.0.3"
     toformat "^2.0.0"
 
-"@alium-official/uikit@^0.11.58":
-  version "0.11.58"
-  resolved "https://registry.yarnpkg.com/@alium-official/uikit/-/uikit-0.11.58.tgz#6903024cbdfeaee6170d46842e582421867b4acb"
-  integrity sha512-ixZy2CI0el4nd0jHlB9rLygJkgS7+x4n0qDy/pl9XPdD1IQOMC4b97vFGMt8siRYJTfZJWaQsWOTUWzRtS5a1A==
+"@alium-official/uikit@^0.11.59":
+  version "0.11.59"
+  resolved "https://registry.yarnpkg.com/@alium-official/uikit/-/uikit-0.11.59.tgz#0cb8196b3f87f1347174b935946e111c91d1cd51"
+  integrity sha512-gQUlmdoA7bVHuWN33PrbN/zrsB8J0L5JWE2v1BmrCIxvQAaq2yadtOm8Fguwq+N63uTUYZggY7qROmWyr19VFw==
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"
     lodash "^4.17.20"
+    react-device-detect "^1.17.0"
     react-loader-spinner "^4.0.0"
     react-transition-group "^4.4.1"
     styled-system "^5.1.5"
@@ -13676,6 +13677,11 @@ react-focus-lock@^2.5.0:
     react-clientside-effect "^1.2.2"
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
+
+react-gtm-module@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/react-gtm-module/-/react-gtm-module-2.0.11.tgz#14484dac8257acd93614e347c32da9c5ac524206"
+  integrity sha512-8gyj4TTxeP7eEyc2QKawEuQoAZdjKvMY4pgWfycGmqGByhs17fR+zEBs0JUDq4US/l+vbTl+6zvUIx27iDo/Vw==
 
 react-i18next@^11.8.13:
   version "11.8.15"
