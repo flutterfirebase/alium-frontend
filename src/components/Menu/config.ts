@@ -1,4 +1,4 @@
-import { externalLinks, MenuEntry } from '@alium-official/uikit'
+import { externalLinks, getMainDomain, MenuEntry } from '@alium-official/uikit'
 
 const config: MenuEntry[] = [
   {
@@ -12,11 +12,11 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: process.env.REACT_APP_EXCHANGE_URL,
+        href: `https://exchange.${getMainDomain()}`,
       },
       {
         label: 'Liquidity',
-        href: process.env.REACT_APP_LIQUIDITY_URL,
+        href: `https://exchange.${getMainDomain()}/pool`,
       },
     ],
   },

@@ -1,5 +1,5 @@
 import { ChainId } from '@alium-official/sdk'
-import { externalLinks, Menu as UikitMenu, MenuEntry } from '@alium-official/uikit'
+import { externalLinks, getMainDomain, Menu as UikitMenu, MenuEntry } from '@alium-official/uikit'
 import useActiveWeb3React from 'hooks'
 import useAuth from 'hooks/useAuth'
 import useCurrencyBalance from 'hooks/useCurrencyBalance'
@@ -41,30 +41,30 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
       items: [
         {
           label: t('swap'),
-          href: process.env.REACT_APP_EXCHANGE_URL,
+          href: `https://exchange.${getMainDomain()}`,
         },
         {
           label: t('mainMenu.liquidity'),
-          href: process.env.REACT_APP_LIQUIDITY_URL,
+          href: `https://exchange.${getMainDomain()}/pool`,
         },
       ],
     },
-    //{ label: 'Token holder area', icon: 'PrivateRoundIcon', href: process.env.REACT_APP_ACCOUNT_LINK || '' },
+    // { label: 'Token holder area', icon: 'PrivateRoundIcon', href: `https://account.${getMainDomain()}` },
     // {
     //   label: 'Analytics',
     //   icon: 'InfoIcon',
     //   items: [
     //     {
     //       label: 'Overview',
-    //       href: process.env.REACT_APP_INFO_URL,
+    //       href: `https://info.${getMainDomain()}`,
     //     },
     //     {
     //       label: 'Tokens',
-    //       href: `${process.env.REACT_APP_INFO_URL}/tokens`,
+    //       href: `https://info.${getMainDomain()}/tokens`,
     //     },
     //     {
     //       label: 'Pairs',
-    //       href: `${process.env.REACT_APP_INFO_URL}/pairs`,
+    //       href: `https://info.${getMainDomain()}/pairs`,
     //     },
     //   ],
     // },

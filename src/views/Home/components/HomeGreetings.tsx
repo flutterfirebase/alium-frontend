@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
+import { Button, getMainDomain, Heading, Text } from '@alium-official/uikit'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Lottie from 'react-lottie-player'
-import { Button, Heading, Text } from '@alium-official/uikit'
-
-import GreetingsConfetti from './GreetingsConfetti'
+import styled from 'styled-components'
 import greetingsAnimationJSON from '../../../assets/data/greetings-animation.json'
+import GreetingsConfetti from './GreetingsConfetti'
 
 const GreetingsWrapper = styled.div`
   width: 100%;
@@ -121,7 +120,7 @@ const HomeGreetings: React.FC = () => {
           {t('greetingsMessage')}
         </StyledText>
         <a
-          href={process.env.REACT_APP_START_TO_TRADE}
+          href={`https://exchange.${getMainDomain()}`}
           className="animate__animated animate__fadeInUp animate__delay-2s animate__fast"
         >
           <StyledButton>{t('startTrading')}</StyledButton>
