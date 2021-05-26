@@ -1,15 +1,16 @@
 import { ChainId } from '@alium-official/sdk'
-import { externalLinks, getMainDomain, Menu as UikitMenu, MenuEntry } from '@alium-official/uikit'
+import { externalLinks,getMainDomain,Menu as UikitMenu,MenuEntry } from '@alium-official/uikit'
+import ConnectionPending from 'components/ConnectionPending/ConnectionPending'
 import useActiveWeb3React from 'hooks'
 import useAuth from 'hooks/useAuth'
 import useCurrencyBalance from 'hooks/useCurrencyBalance'
 import useTheme from 'hooks/useTheme'
 import useWeb3 from 'hooks/useWeb3'
-import React, { FC } from 'react'
+import React,{ FC } from 'react'
 import { useTranslation } from 'react-i18next'
 // import { useWeb3React } from '@web3-react/core'
-import { Route, RouteProps } from 'react-router-dom'
-import { getExplorerLink, getExplorerName } from 'utils'
+import { Route,RouteProps } from 'react-router-dom'
+import { getExplorerLink,getExplorerName } from 'utils'
 
 type PropsType = {
   loginBlockVisible?: boolean
@@ -101,30 +102,33 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
   ]
 
   return (
-    <UikitMenu
-      account={account}
-      login={login}
-      logout={logout}
-      isDark={isDark}
-      toggleTheme={toggleTheme}
-      links={links}
-      loginBlockVisible={loginBlockVisible}
-      buttonTitle={t('connect')}
-      balance={balance?.toSignificant(6)}
-      explorerName={explorerName}
-      explorerLink={explorerLink}
-      options={{
-        modalTitle: t('connectToWallet'),
-        modalFooter: t('learnHowConnect'),
-        modelLogout: t('logout'),
-        modalBscScan: t('viewOnBscscan'),
-        modelCopyAddress: t('copyAddress'),
-      }}
-      betaText="This is the main version. Press here to switch to Beta."
-      betaLink="https://beta.exchange.alium.finance"
-      balanceHook={useBalance}
-      {...props}
-    />
+    <>
+      <ConnectionPending />
+      <UikitMenu
+        account={account}
+        login={login}
+        logout={logout}
+        isDark={isDark}
+        toggleTheme={toggleTheme}
+        links={links}
+        loginBlockVisible={loginBlockVisible}
+        buttonTitle={t('connect')}
+        balance={balance?.toSignificant(6)}
+        explorerName={explorerName}
+        explorerLink={explorerLink}
+        options={{
+          modalTitle: t('connectToWallet'),
+          modalFooter: t('learnHowConnect'),
+          modelLogout: t('logout'),
+          modalBscScan: t('viewOnBscscan'),
+          modelCopyAddress: t('copyAddress'),
+        }}
+        betaText="This is the main version. Press here to switch to Beta."
+        betaLink="https://beta.exchange.alium.finance"
+        balanceHook={useBalance}
+        {...props}
+      />
+    </>
   )
 }
 
