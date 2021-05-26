@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@alium-official/sdk": "^1.1.14",
-    "@alium-official/uikit": "^0.11.75",
+    "@alium-official/uikit": "^0.11.76",
     "@binance-chain/bsc-connector": "^1.0.3",
     "@crowdin/crowdin-api-client": "^1.10.6",
     "@ethersproject/experimental": "^5.1.2",
