@@ -45,12 +45,12 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
     },
   ]
 
-  if (totalBalance > 0) {
-    links = [
-      ...links,
-      { label: 'Token holder area', icon: 'PrivateRoundIcon', href: `https://account.${getMainDomain()}` },
-    ]
-  }
+  // if (totalBalance > 0) {
+  links = [
+    ...links,
+    { label: 'Token holder area', icon: 'PrivateRoundIcon', href: `https://account.${getMainDomain()}` },
+  ]
+  // }
 
   links = [
     ...links,
