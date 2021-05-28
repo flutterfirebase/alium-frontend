@@ -1,6 +1,8 @@
 import { ChainId } from '@alium-official/sdk'
-import { externalLinks, Menu as UikitMenu, MenuEntry } from '@alium-official/uikit'
+import { externalLinks, getMainDomain, Menu as UikitMenu, MenuEntry } from '@alium-official/uikit'
+import ConnectionPending from 'components/ConnectionPending/ConnectionPending'
 import useActiveWeb3React from 'hooks'
+import useAccountTotalBalance from 'hooks/useAccountTotalBalance'
 import useAuth from 'hooks/useAuth'
 import useCurrencyBalance from 'hooks/useCurrencyBalance'
 import useTheme from 'hooks/useTheme'
@@ -15,7 +17,7 @@ type PropsType = {
   loginBlockVisible?: boolean
 }
 const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
-  const { account, chainId } = useActiveWeb3React()
+  const { account, library, chainId } = useActiveWeb3React()
   const web3 = useWeb3()
   const { login, logout } = useAuth()
   const { isDark, toggleTheme } = useTheme()
@@ -24,107 +26,85 @@ const Menu: FC<PropsType> = ({ loginBlockVisible = true, ...props }) => {
   const explorerName = getExplorerName(chainId as ChainId)
   const explorerLink = getExplorerLink(chainId as ChainId, account as string, 'address')
 
+  const { totalBalance } = useAccountTotalBalance(account, library)
+
   const useBalance = async () => {
     // const result = await useCurrencyBalance(account, web3)
     return balance
   }
 
-  const links: MenuEntry[] = [
-    {
-      label: 'Home',
-      icon: 'HomeIcon',
-      href: '/',
-    },
+  let links: MenuEntry[] = [
+    { label: 'Home', icon: 'HomeIcon', href: `https://${getMainDomain()}` },
     {
       label: t('mainMenu.trade'),
       icon: 'TradeIcon',
       items: [
-        {
-          label: t('swap'),
-          href: process.env.REACT_APP_EXCHANGE_URL,
-        },
-        {
-          label: t('mainMenu.liquidity'),
-          href: process.env.REACT_APP_LIQUIDITY_URL,
-        },
+        { label: t('swap'), href: `https://exchange.${getMainDomain()}` },
+        { label: t('mainMenu.liquidity'), href: `https://exchange.${getMainDomain()}/pool` },
       ],
     },
-    //{ label: 'Token holder area', icon: 'PrivateRoundIcon', href: process.env.REACT_APP_ACCOUNT_LINK || '' },
+  ]
+
+  // if (totalBalance > 0) {
+  links = [
+    ...links,
+    { label: 'Token holder area', icon: 'PrivateRoundIcon', href: `https://account.${getMainDomain()}` },
+  ]
+  // }
+
+  links = [
+    ...links,
     // {
     //   label: 'Analytics',
     //   icon: 'InfoIcon',
     //   items: [
-    //     {
-    //       label: 'Overview',
-    //       href: process.env.REACT_APP_INFO_URL,
-    //     },
-    //     {
-    //       label: 'Tokens',
-    //       href: `${process.env.REACT_APP_INFO_URL}/tokens`,
-    //     },
-    //     {
-    //       label: 'Pairs',
-    //       href: `${process.env.REACT_APP_INFO_URL}/pairs`,
-    //     },
+    //     { label: 'Overview', href: `https://info.${getMainDomain()}` },
+    //     { label: 'Tokens', href: `https://info.${getMainDomain()}/tokens` },
+    //     { label: 'Pairs', href: `https://info.${getMainDomain()}/pairs` },
     //   ],
     // },
     {
       label: t('mainMenu.more'),
       icon: 'MoreIcon',
       items: [
-        {
-          label: 'Audits',
-          href: '/audits',
-        },
-        // {
-        //   label: 'Voting',
-        //   href: 'https://voting.dev.alium.finance',
-        // },
-        {
-          label: t('mainMenu.github'),
-          href: externalLinks.github,
-        },
-        // {
-        //   label: 'Docs',
-        //   href: 'https://docs.pancakeswap.finance',
-        // },
-        {
-          label: 'Docs',
-          href: 'https://aliumswap.gitbook.io/alium-finance/',
-        },
-        {
-          label: t('mainMenu.blog'),
-          href: externalLinks.medium,
-        },
+        { label: 'Audits', href: `https://${getMainDomain()}/audits` },
+        // { label: 'Voting', href: 'https://voting.dev.alium.finance' },
+        { label: t('mainMenu.github'), href: externalLinks.github },
+        // { label: 'Docs', href: 'https://docs.pancakeswap.finance' },
+        { label: 'Docs', href: 'https://aliumswap.gitbook.io/alium-finance/' },
+        { label: t('mainMenu.blog'), href: externalLinks.medium },
       ],
     },
   ]
 
   return (
-    <UikitMenu
-      account={account}
-      login={login}
-      logout={logout}
-      isDark={isDark}
-      toggleTheme={toggleTheme}
-      links={links}
-      loginBlockVisible={loginBlockVisible}
-      buttonTitle={t('connect')}
-      balance={balance?.toSignificant(6)}
-      explorerName={explorerName}
-      explorerLink={explorerLink}
-      options={{
-        modalTitle: t('connectToWallet'),
-        modalFooter: t('learnHowConnect'),
-        modelLogout: t('logout'),
-        modalBscScan: t('viewOnBscscan'),
-        modelCopyAddress: t('copyAddress'),
-      }}
-      betaText="This is the main version. Press here to switch to Beta."
-      betaLink="https://beta.exchange.alium.finance"
-      balanceHook={useBalance}
-      {...props}
-    />
+    <>
+      <ConnectionPending />
+      <UikitMenu
+        account={account}
+        login={login}
+        logout={logout}
+        isDark={isDark}
+        toggleTheme={toggleTheme}
+        links={links}
+        loginBlockVisible={loginBlockVisible}
+        buttonTitle={t('connect')}
+        balance={balance?.toSignificant(6)}
+        explorerName={explorerName}
+        explorerLink={explorerLink}
+        options={{
+          modalTitle: t('connectToWallet'),
+          modalFooter: t('learnHowConnect'),
+          modelLogout: t('logout'),
+          modalBscScan: t('viewOnBscscan'),
+          modelCopyAddress: t('copyAddress'),
+        }}
+        betaText="This is the main version. Press here to switch to Beta."
+        betaLink="https://beta.exchange.alium.finance"
+        balanceHook={useBalance}
+        {...props}
+      />
+    </>
   )
 }
 

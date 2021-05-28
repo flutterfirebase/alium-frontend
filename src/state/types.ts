@@ -1,6 +1,6 @@
 import { Toast } from '@alium-official/uikit'
 import BigNumber from 'bignumber.js'
-import { CampaignType, FarmConfig, Nft, PoolConfig, Team } from 'config/constants/types'
+import { CampaignType,FarmConfig,Nft,PoolConfig,Team } from 'config/constants/types'
 
 export type TranslatableText =
   | string
@@ -70,6 +70,7 @@ export interface ProfileState {
   isLoading: boolean
   hasRegistered: boolean
   data: Profile
+  connectionError: any
 }
 
 export type TeamResponse = {

@@ -8,6 +8,7 @@ const initialState: ProfileState = {
   isLoading: true,
   hasRegistered: false,
   data: null,
+  connectionError: null,
 }
 
 export const profileSlice = createSlice({
@@ -25,6 +26,7 @@ export const profileSlice = createSlice({
         isLoading: false,
         hasRegistered,
         data: profile,
+        connectionError: null,
       }
     },
     profileFetchFailed: (state) => {
@@ -34,11 +36,15 @@ export const profileSlice = createSlice({
     addPoints: (state, action: PayloadAction<number>) => {
       state.data.points += action.payload
     },
+    setConnectionError: (state, action: PayloadAction<{ error: any }>) => {
+      state.connectionError = action.payload.error
+    },
   },
 })
 
 // Actions
-export const { profileFetchStart, profileFetchSucceeded, profileFetchFailed, addPoints } = profileSlice.actions
+export const { profileFetchStart, profileFetchSucceeded, profileFetchFailed, addPoints, setConnectionError } =
+  profileSlice.actions
 
 // Thunks
 export const fetchProfile = (address: string) => async (dispatch) => {

@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alium-official/sdk@^1.1.11":
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/@alium-official/sdk/-/sdk-1.1.11.tgz#1030528fe1db2d445ffc26b465b18bc86efabd84"
-  integrity sha512-8C5L6XXnmXCBAFwq/T7RN2eJkKv9Cltp4jQDO7Mu4SZO/qj2ZdcNFwKuy5KuCCIGGUQFAdDBrgOYVvf7szvNXw==
+"@alium-official/sdk@^1.1.14":
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/@alium-official/sdk/-/sdk-1.1.14.tgz#97e0370f41dbeddd4fb7c7837f1ecc839a34fc7d"
+  integrity sha512-Lh6QT0hSNXmeYX4F1yTadDcw1y9Hrm88FImqMXN+QKDSuGD5cpb3LEKskrDmEpQuyUIygt+qOcesCiB6q9FoCg==
   dependencies:
     big.js "^5.2.2"
     decimal.js-light "^2.5.0"
@@ -14,10 +14,10 @@
     tiny-warning "^1.0.3"
     toformat "^2.0.0"
 
-"@alium-official/uikit@^0.11.59":
-  version "0.11.59"
-  resolved "https://registry.yarnpkg.com/@alium-official/uikit/-/uikit-0.11.59.tgz#0cb8196b3f87f1347174b935946e111c91d1cd51"
-  integrity sha512-gQUlmdoA7bVHuWN33PrbN/zrsB8J0L5JWE2v1BmrCIxvQAaq2yadtOm8Fguwq+N63uTUYZggY7qROmWyr19VFw==
+"@alium-official/uikit@^0.11.79":
+  version "0.11.79"
+  resolved "https://registry.yarnpkg.com/@alium-official/uikit/-/uikit-0.11.79.tgz#e2c93c08bfba9fe6b47d35d54b3829cbba383a32"
+  integrity sha512-hyQsJanuPswvoDprCiu7i6zLQ0yQx216I9jbvIRyy3Dyai6+pug4obOkTIC/y2m0+ng5sxWhzqXrTgSUjBoyrw==
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"

@@ -1,5 +1,5 @@
 // import { useWallet } from '@binance-chain/bsc-use-wallet'
-import { Maintenance, NotFound, ResetCSS } from '@alium-official/uikit'
+import { getMainDomain, Maintenance, NotFound, ResetCSS } from '@alium-official/uikit'
 import BigNumber from 'bignumber.js'
 import useEagerConnect from 'hooks/useEagerConnect'
 import React, { lazy, Suspense, useEffect } from 'react'
@@ -93,7 +93,7 @@ const App: React.FC = () => {
             <Maintenance />
           </Route>
           <MenuWrappedRoute loginBlockVisible={loginBlockHidden}>
-            <NotFound redirectURL={process.env.REACT_APP_HOME_URL} />
+            <NotFound redirectURL={`https://${getMainDomain()}`} />
           </MenuWrappedRoute>
         </Switch>
         <ToastListener />

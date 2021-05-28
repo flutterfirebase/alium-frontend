@@ -1,3 +1,4 @@
+import { getMainDomain } from '@alium-official/uikit'
 import { motion } from 'framer-motion'
 import React, { FC } from 'react'
 import styled from 'styled-components'
@@ -289,7 +290,7 @@ const HomeNew = () => {
           </a>
         </MotionLeftColumn>
         <Cards>
-          <a href={process.env.REACT_APP_EXCHANGE_URL}>
+          <a href={`https://exchange.${getMainDomain()}`}>
             <MotionLeftColumn opacityDelay={0.3} xInitial={-80} xDuration={1.4}>
               <CardExchange>
                 <div className="title">Exchange</div>
@@ -297,7 +298,7 @@ const HomeNew = () => {
               </CardExchange>
             </MotionLeftColumn>
           </a>
-          <a href={process.env.REACT_APP_LIQUIDITY_URL}>
+          <a href={`https://exchange.${getMainDomain()}/pool`}>
             <MotionLeftColumn opacityDelay={0.5} xInitial={-100} xDuration={1.5}>
               <CardLiquidity>
                 <div className="title">Liquidity</div>
