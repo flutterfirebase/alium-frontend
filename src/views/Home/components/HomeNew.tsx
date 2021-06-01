@@ -353,6 +353,20 @@ const InputErrorStyled = styled.div`
   color: #ed4b9e;
 `
 
+const StyledLoader = styled.div`
+  @keyframes spinner {
+    from {
+      transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+      }
+  }
+  background: url(/images/home/loader.svg);
+  width: 24px;
+  height: 24px;%;
+  animation: spinner 1s linear infinite;
+`
+
 const MotionLeftColumn: FC<{
   opacityDelay?: number
   opacityDuration?: number
@@ -380,6 +394,7 @@ const HomeNew = () => {
   const [hideLabel, setHideLabel] = useState(false)
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState<null | string>(null)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const handleCloseModal = () => {
     closeModal()
@@ -394,6 +409,7 @@ const HomeNew = () => {
 
   const handleSubmitEmail = async () => {
     if (validateEmail(email)) {
+      setIsLoading(true)
       const res = await dbMailListCreateEmail(email)
       if (res === true) {
         setEmail('')
@@ -404,6 +420,7 @@ const HomeNew = () => {
       } else {
         setEmailError('Unknown error. Please contact support.')
       }
+      setIsLoading(false)
     } else {
       setEmailError('Please enter a valid email address')
     }
@@ -443,7 +460,7 @@ const HomeNew = () => {
                 {emailError && <InputErrorStyled>{emailError}</InputErrorStyled>}
               </InputStyled>
 
-              <ActionButton onClick={handleSubmitEmail}>Send</ActionButton>
+              <ActionButton onClick={handleSubmitEmail}>{isLoading ? <StyledLoader /> : 'Send'}</ActionButton>
             </EmailContainer>
           </MotionLeftColumn>
         </LeftColumn>
