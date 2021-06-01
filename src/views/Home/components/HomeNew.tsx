@@ -164,11 +164,9 @@ const ActionButton = styled.div`
 const Cards = styled.div`
   max-width: 546px;
   width: 100%;
-  margin-top: 64px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 152px;
   @media screen and (max-width: 1024px) {
     max-width: none;
     a {
@@ -357,13 +355,15 @@ const StyledLoader = styled.div`
   @keyframes spinner {
     from {
       transform: rotate(0deg);
-    } to {
-        transform: rotate(360deg);
-      }
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
   background: url(/images/home/loader.svg);
   width: 24px;
-  height: 24px;%;
+  height: 24px;
+%;
   animation: spinner 1s linear infinite;
 `
 
