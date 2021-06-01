@@ -1,8 +1,9 @@
-import { getMainDomain, Input } from '@alium-official/uikit'
+import { getMainDomain, Input, useModal } from '@alium-official/uikit'
 import { motion } from 'framer-motion'
 import React, { FC, useState } from 'react'
 import styled from 'styled-components'
 import { dbMailListCreateEmail } from 'utils/firebase'
+import CongratsModal from 'views/Home/components/CongratsModal'
 
 const Container = styled.div`
   display: flex;
@@ -352,10 +353,6 @@ const InputErrorStyled = styled.div`
   color: #ed4b9e;
 `
 
-const InputSuccessStyled = styled(InputErrorStyled)`
-  color: #31d0aa;
-`
-
 const MotionLeftColumn: FC<{
   opacityDelay?: number
   opacityDuration?: number
@@ -383,12 +380,16 @@ const HomeNew = () => {
   const [hideLabel, setHideLabel] = useState(false)
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState<null | string>(null)
-  const [emailSuccess, setEmailSuccess] = useState<null | string>(null)
+
+  const handleCloseModal = () => {
+    closeModal()
+  }
+
+  const [openModal, closeModal] = useModal(<CongratsModal handleClose={handleCloseModal} />)
 
   const handleChangeEmail = (e: React.FormEvent<HTMLInputElement>) => {
     setEmail(e.currentTarget.value)
     setEmailError(null)
-    setEmailSuccess(null)
   }
 
   const handleSubmitEmail = async () => {
@@ -396,7 +397,8 @@ const HomeNew = () => {
       const res = await dbMailListCreateEmail(email)
       if (res === true) {
         setEmail('')
-        setEmailSuccess('Your email has been added!')
+        setEmailError(null)
+        openModal()
       } else if (res === false) {
         setEmailError('Your email has already been added!')
       } else {
@@ -429,7 +431,6 @@ const HomeNew = () => {
                 {!hideLabel && <label>Your email</label>}
                 <Input
                   isWarning={!!emailError}
-                  isSuccess={!!emailSuccess}
                   scale="lg"
                   placeholder="email@gmail.com"
                   value={email}
@@ -440,7 +441,6 @@ const HomeNew = () => {
                   name="email"
                 />
                 {emailError && <InputErrorStyled>{emailError}</InputErrorStyled>}
-                {emailSuccess && <InputSuccessStyled>{emailSuccess}</InputSuccessStyled>}
               </InputStyled>
 
               <ActionButton onClick={handleSubmitEmail}>Send</ActionButton>
