@@ -1,6 +1,6 @@
-import { getMainDomain } from '@alium-official/uikit'
+import { getMainDomain, Input } from '@alium-official/uikit'
 import { motion } from 'framer-motion'
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -10,9 +10,9 @@ const Container = styled.div`
   max-width: 1122px;
   width: 100%;
   margin: 0 auto 80px auto;
-
-  @media screen and (min-width: 1320px) {
-    flex-direction: row;
+  flex-direction: row;
+  @media screen and (max-width: 768px) {
+    flex-direction: column-reverse;
   }
 `
 
@@ -25,6 +25,12 @@ const LeftColumn = styled.div`
 
   @media screen and (min-width: 1320px) {
     margin: 0;
+  }
+  @media screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto 0 auto;
   }
 `
 
@@ -42,10 +48,22 @@ const RightColumn = styled.div`
 
   @media screen and (min-width: 640px) {
     zoom: 1;
+    margin: 0;
+    padding: 0;
   }
 
   @media screen and (min-width: 1320px) {
     margin: 0;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    zoom: inherit;
+    margin: 0;
+    padding: 0;
+    height: 300px;
+  }
+  @media screen and (max-width: 414px) {
+    zoom: 0.8;
   }
 `
 
@@ -65,35 +83,61 @@ const StartingSoon = styled.div`
   line-height: 20px;
   letter-spacing: 1px;
   color: hsl(155, 68%, 44%);
+  @media screen and (max-width: 768px) {
+    margin-top: 5px;
+  }
 `
 
 const H1 = styled.h1`
-  margin-top: 32px;
-  font-family: Roboto, sans-serif;
-  font-size: 90px;
-  font-weight: 700;
-  line-height: 100px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
   letter-spacing: 0.3px;
-  color: hsl(234, 78%, 20%);
+  margin-top: 32px;
+  @media screen and (max-width: 1024px) {
+    max-width: 370px;
+    font-size: 40px;
+  }
+  @media screen and (max-width: 768px) {
+    line-height: 40px;
+    margin-top: 16px;
+  }
+  @media screen and (max-width: 414px) {
+    font-size: 32px;
+  }
+  @media screen and (max-width: 350px) {
+    font-size: 30px;
+  }
 `
 
 const H2 = styled.h2`
-  margin-top: 16px;
-  font-family: Roboto, sans-serif;
-  font-size: 24px;
-  font-weight: normal;
-  line-height: 30px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
   letter-spacing: 0.3px;
-  color: hsl(225, 13%, 59%);
+  color: #8990a5;
+  margin-top: 32px;
+  @media screen and (max-width: 1024px) {
+    max-width: 370px;
+  }
+  @media screen and (max-width: 768px) {
+    margin-top: 16px;
+  }
+  @media screen and (max-width: 414px) {
+    text-align: center;
+  }
 `
 
 const ActionButton = styled.div`
-  margin-top: 32px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   padding: 14px 24px;
-  width: 164px;
+  width: 83px;
   height: 48px;
   background: hsl(248, 57%, 60%);
   border-radius: 6px;
@@ -109,6 +153,9 @@ const ActionButton = styled.div`
   &:hover {
     background: hsla(248, 57%, 65%);
   }
+  @media screen and (max-width: 414px) {
+    margin-left: 20px;
+  }
 `
 
 const Cards = styled.div`
@@ -118,6 +165,19 @@ const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 152px;
+  @media screen and (max-width: 768px) {
+    margin-top: 24px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media screen and (max-width: 414px) {
+    max-width: none;
+    a {
+      width: 100%;
+    }
+  }
 `
 
 const Card = styled.div`
@@ -156,6 +216,10 @@ const Card = styled.div`
   &:hover .button {
     background: hsla(0, 0%, 100%, 0.3) url('/images/home/card-arrow-right.svg') no-repeat center;
   }
+  @media screen and (max-width: 414px) {
+    width: 100%;
+    height: 80px;
+  }
 `
 
 const CardExchange = styled(Card)`
@@ -165,93 +229,95 @@ const CardLiquidity = styled(Card)`
   background: hsl(155, 68%, 44%) url('/images/home/card-liquidity.svg');
 `
 
-const Rectangle = styled(motion.div)`
-  background: linear-gradient(144.86deg, #6c5dd3 20.65%, #ffc581 107.09%);
-  border-radius: inherit;
-`
-
-const Hand1 = styled(motion.div)`
+const MarketPlace = styled(motion.div)`
   position: absolute;
-  bottom: -50px;
-  right: 0;
-  width: 460px;
-  height: 350px;
-  background: url(/images/home/hand-1-x2.png) no-repeat;
+  bottom: 0px;
+  right: -50px;
+  width: 675px;
+  height: 526px;
+  background: url(/images/home/marketplace.svg) no-repeat;
   background-size: contain;
+  @media screen and (max-width: 1440px) {
+    right: -66px;
+  }
+  @media screen and (max-width: 1320px) {
+    width: 510px;
+    height: 397px;
+    right: -110px;
+  }
+  @media screen and (max-width: 1150px) {
+    width: 429px;
+    height: 397px;
+    right: -122px;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+    right: 0;
+    max-width: 370px;
+    position: absolute;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media screen and (max-width: 414px) {
+    background-size: cover;
+  }
+`
+const Rocket = styled.span`
+  font-size: 24px;
+  position: relative;
+  right: 10px;
+  top: -5px;
 `
 
-const Hand2 = styled(motion.div)`
-  position: absolute;
-  bottom: -3px;
-  left: -20px;
-  width: 203px;
-  height: 152px;
-  background: url(/images/home/hand-2-x2.png) no-repeat;
-  background-size: contain;
-`
-
-const HandCardContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+const EmailContainer = styled.div`
+  margin-top: 16px;
+  width: 450px;
+  height: 103px;
+  background: #ffffff;
+  border-radius: 6px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  padding: 24px;
+  @media screen and (max-width: 1024px) {
+    max-width: 370px;
+  }
+  @media screen and (max-width: 414px) {
+    width: 100%;
+    max-width: auto;
+  }
 `
 
-const HandCard1 = styled(motion.div)`
-  margin-top: -107px;
-  margin-left: -130px;
-  background: url(/images/home/hand-card-1-x2.png) no-repeat;
-  background-size: contain;
-  position: absolute;
-`
-
-const HandCardShadow = styled(motion.div)`
-  margin-bottom: -76px;
-  margin-right: 114px;
-  background: url(/images/home/hand-card-shadow-x2.png) no-repeat;
-  background-size: contain;
-  position: absolute;
-`
-
-const HandCard2 = styled(motion.div)`
-  margin-top: 89px;
-  margin-left: -103px;
-  background: url(/images/home/hand-card-2-x2.png) no-repeat;
-  background-size: contain;
-  position: absolute;
-`
-
-const Ellipse1 = styled(motion.div)`
-  top: 146px;
-  left: 12px;
-  border-radius: 50%;
-  background: white;
-  box-shadow: 0 0 9px 3px white;
-  position: absolute;
-`
-
-const Ellipse2 = styled(motion.div)`
-  top: 181px;
-  right: 119px;
-  border-radius: 50%;
-  background: white;
-  box-shadow: 0 0 12px 3px white;
-  position: absolute;
-`
-
-const Ellipse3 = styled(motion.div)`
-  top: 230px;
-  right: 21px;
-  width: 11px;
-  height: 12px;
-  border-radius: 50%;
-  background: white;
-  box-shadow: 0 0 6px 3px white;
-  position: absolute;
+const InputStyled = styled.div`
+  position: relative;
+  label {
+    position: absolute;
+    background: white;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #6c5dd3;
+    top: -6px;
+    left: 10px;
+    width: 65px;
+    text-align: center;
+  }
+  input {
+    border: 1px solid #d2d6e5;
+    &::placeholder {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.3px;
+      color: #d2d6e5;
+    }
+  }
 `
 
 const MotionLeftColumn: FC<{
@@ -272,23 +338,38 @@ const MotionLeftColumn: FC<{
 )
 
 const HomeNew = () => {
+  const [hideLabel, setHideLabel] = useState(false)
   return (
     <Container>
       <LeftColumn>
         <MotionLeftColumn xInitial={-20} xDuration={0.8}>
-          <StartingSoon>MAY 18-28</StartingSoon>
+          <StartingSoon>15.06.2021</StartingSoon>
         </MotionLeftColumn>
         <MotionLeftColumn xInitial={-60} xDuration={1}>
-          <H1>Public Sale LIVE</H1>
+          <H1>
+            Alium marketplace <br />
+            is launching soon <Rocket>🚀</Rocket>
+          </H1>
         </MotionLeftColumn>
-        {/* <MotionLeftColumn xInitial={-40} xDuration={0.8}>
-          <H2>Have time to add yourself to the whitelist.</H2>
-        </MotionLeftColumn> */}
+        <MotionLeftColumn xInitial={-40} xDuration={0.8}>
+          <H2>Leave your email and we will inform you about the launch</H2>
+        </MotionLeftColumn>
         <MotionLeftColumn xInitial={-50} xDuration={1.1}>
-          <a href="https://public.alium.finance">
-            <ActionButton>Public Sale</ActionButton>
-          </a>
+          <EmailContainer>
+            <InputStyled>
+              {!hideLabel && <label>Your email</label>}
+              <Input
+                placeholder="email@gmail.com"
+                onBlur={() => setHideLabel(false)}
+                onFocus={() => setHideLabel(true)}
+                type="email"
+                name="email"
+              />
+            </InputStyled>
+            <ActionButton>Send</ActionButton>
+          </EmailContainer>
         </MotionLeftColumn>
+
         <Cards>
           <a href={`https://exchange.${getMainDomain()}`}>
             <MotionLeftColumn opacityDelay={0.3} xInitial={-80} xDuration={1.4}>
@@ -309,71 +390,10 @@ const HomeNew = () => {
         </Cards>
       </LeftColumn>
       <RightColumn>
-        <motion.div
-          initial={{
-            borderBottomRightRadius: 0,
-            borderBottomLeftRadius: 0,
-            borderTopRightRadius: 0,
-            borderTopLeftRadius: 0,
-          }}
-          animate={{
-            borderTopLeftRadius: 200,
-            borderTopRightRadius: 20,
-            borderBottomRightRadius: 200,
-            borderBottomLeftRadius: 20,
-          }}
-          transition={{ delay: 0.2, duration: 0.3, ease: 'easeOut' }}
-        >
-          <Rectangle
-            initial={{ width: 0, height: 0 }}
-            animate={{ width: 429, height: 500 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-          />
-        </motion.div>
-        <Hand1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
-        />
-        <HandCardContainer>
-          <HandCard2
-            initial={{ width: 0, height: 0, rotate: -60 }}
-            animate={{ width: 383, height: 289, rotate: 0 }}
-            transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
-          />
-        </HandCardContainer>
-        <Ellipse2
-          initial={{ opacity: 0, y: -30, width: 84, height: 84 }}
-          animate={{ opacity: 1, y: 0, width: 42, height: 42 }}
-          transition={{ delay: 1, duration: 0.8, ease: 'easeOut' }}
-        />
-
-        <HandCardContainer>
-          <HandCardShadow
-            initial={{ width: 0, height: 0, rotate: -60 }}
-            animate={{ width: 370, height: 330, rotate: 0 }}
-            transition={{ delay: 0.7, duration: 0.8, ease: 'easeOut' }}
-          />
-          <HandCard1
-            initial={{ width: 0, height: 0, rotate: -60 }}
-            animate={{ width: 450, height: 414, rotate: 0 }}
-            transition={{ delay: 0.7, duration: 0.8, ease: 'easeOut' }}
-          />
-        </HandCardContainer>
-        <Hand2
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1, ease: 'easeOut' }}
-        />
-        <Ellipse1
-          initial={{ opacity: 0, width: 40, height: 40 }}
-          animate={{ opacity: 1, width: 16, height: 16 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
-        />
-        <Ellipse3
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
+        <MarketPlace
+        // initial={{ opacity: 0 }}
+        // animate={{ opacity: 1 }}
+        // transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
         />
       </RightColumn>
     </Container>
