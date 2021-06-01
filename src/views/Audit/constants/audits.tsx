@@ -1,6 +1,7 @@
 // const audit1_image='../images/01_Certificate_Aliumswap.png'
 import aliumswap from '../images/01_Certificate_Aliumswap.png'
 import securityAssesmentImage from '../images/02_Certificate_Aliumswap.png'
+import jun_cert1 from '../images/1jun_cert.png'
 import cert08 from '../images/certificate_08.jpg'
 import cert15 from '../images/certificate_15.jpg'
 import certikImage from '../images/certik.png'
@@ -21,6 +22,27 @@ export type AuditType = {
 }
 
 const cardList = [
+  {
+    // certic
+    headline: 'Alium Factory Security Assessment, CertiK',
+    date: 'Jun 1st, 2021',
+    gitHubCertificate:
+      'https://github.com/Alium-Finance/alium-swap-heco/blob/master/alium-swap-core/contracts/AliumFactory.sol',
+    detailedReport:
+      'https://s3.us-west-2.amazonaws.com/secure.notion-static.com/e90832ef-13e3-4396-b54f-e37acce2978b/REP-Alium-2021-06-01%282%29.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210601%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210601T121029Z&X-Amz-Expires=86400&X-Amz-Signature=348a2f18757703d88bb8c1a863baf81170b8929bdb7cd21eee0d3a48850b1271&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22REP-Alium-2021-06-01%282%29.pdf%22',
+    image: jun_cert1,
+    headImg: certikImage,
+  },
+  {
+    // certic
+    headline: 'Alium Router Security Assessment, CertiK',
+    date: 'Jun 1st, 2021',
+    gitHubCertificate:
+      'https://github.com/Alium-Finance/alium-swap-heco/blob/master/alium-swap-periphery/contracts/AliumRouter.sol',
+    detailedReport: 'https://www.certik.org/projects/aliumswap',
+    image: jun_cert1,
+    headImg: certikImage,
+  },
   {
     // certic
     headline: 'Security Assessment Alium Farm by CertiK',
