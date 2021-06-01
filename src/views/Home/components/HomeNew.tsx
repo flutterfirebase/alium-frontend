@@ -252,7 +252,7 @@ const MarketPlace = styled(motion.div)`
   right: -50px;
   width: 675px;
   height: 526px;
-  background: url(/images/home/marketplace.svg) no-repeat;
+  background: url(/images/home/marketplace.png) no-repeat;
   background-size: contain;
   @media screen and (max-width: 1440px) {
     right: -66px;
