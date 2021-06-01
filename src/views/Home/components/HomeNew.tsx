@@ -2,6 +2,7 @@ import { getMainDomain, Input } from '@alium-official/uikit'
 import { motion } from 'framer-motion'
 import React, { FC, useState } from 'react'
 import styled from 'styled-components'
+import { dbMailListCreateEmail } from 'utils/firebase'
 
 const Container = styled.div`
   display: flex;
@@ -337,8 +338,29 @@ const MotionLeftColumn: FC<{
   </motion.div>
 )
 
+function validateEmail(email) {
+  const re =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  return re.test(String(email).toLowerCase())
+}
+
 const HomeNew = () => {
   const [hideLabel, setHideLabel] = useState(false)
+  const [email, setEmail] = useState('')
+
+  const handleChangeEmail = (e: React.FormEvent<HTMLInputElement>) => {
+    setEmail(e.currentTarget.value)
+  }
+
+  const handleSubmitEmail = async () => {
+    if (validateEmail(email)) {
+      const res = await dbMailListCreateEmail(email)
+      if (res === true) {
+        setEmail('')
+      }
+    }
+  }
+
   return (
     <Container>
       <LeftColumn>
@@ -360,13 +382,15 @@ const HomeNew = () => {
               {!hideLabel && <label>Your email</label>}
               <Input
                 placeholder="email@gmail.com"
+                value={email}
+                onChange={handleChangeEmail}
                 onBlur={() => setHideLabel(false)}
                 onFocus={() => setHideLabel(true)}
-                type="email"
                 name="email"
+                type="email"
               />
             </InputStyled>
-            <ActionButton>Send</ActionButton>
+            <ActionButton onClick={handleSubmitEmail}>Send</ActionButton>
           </EmailContainer>
         </MotionLeftColumn>
 

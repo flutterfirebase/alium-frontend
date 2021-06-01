@@ -70,6 +70,7 @@
     "copy-to-clipboard": "^3.3.1",
     "dotenv-cli": "^4.0.0",
     "ethers": "^5.1.4",
+    "firebase": "^8.6.3",
     "framer-motion": "^4.1.11",
     "i18next": "^20.2.2",
     "i18next-browser-languagedetector": "^6.1.0",
