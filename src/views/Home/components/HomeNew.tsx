@@ -166,11 +166,20 @@ const Cards = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 152px;
+  @media screen and (max-width: 1024px) {
+    max-width: none;
+    a {
+      width: 49%;
+    }
+  }
   @media screen and (max-width: 768px) {
     margin-top: 24px;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    a {
+      width: 100%;
+    }
   }
   @media screen and (max-width: 414px) {
     max-width: none;
@@ -216,6 +225,9 @@ const Card = styled.div`
   &:hover .button {
     background: hsla(0, 0%, 100%, 0.3) url('/images/home/card-arrow-right.svg') no-repeat center;
   }
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
   @media screen and (max-width: 414px) {
     width: 100%;
     height: 80px;
@@ -224,9 +236,13 @@ const Card = styled.div`
 
 const CardExchange = styled(Card)`
   background: hsl(248, 57%, 60%) url('/images/home/card-exchange.svg');
+  background-repeat: no-repeat;
+  background-position: right;
 `
 const CardLiquidity = styled(Card)`
   background: hsl(155, 68%, 44%) url('/images/home/card-liquidity.svg');
+  background-repeat: no-repeat;
+  background-position: right;
 `
 
 const MarketPlace = styled(motion.div)`
@@ -340,36 +356,46 @@ const MotionLeftColumn: FC<{
 const HomeNew = () => {
   const [hideLabel, setHideLabel] = useState(false)
   return (
-    <Container>
-      <LeftColumn>
-        <MotionLeftColumn xInitial={-20} xDuration={0.8}>
-          <StartingSoon>15.06.2021</StartingSoon>
-        </MotionLeftColumn>
-        <MotionLeftColumn xInitial={-60} xDuration={1}>
-          <H1>
-            Alium marketplace <br />
-            is launching soon <Rocket>🚀</Rocket>
-          </H1>
-        </MotionLeftColumn>
-        <MotionLeftColumn xInitial={-40} xDuration={0.8}>
-          <H2>Leave your email and we will inform you about the launch</H2>
-        </MotionLeftColumn>
-        <MotionLeftColumn xInitial={-50} xDuration={1.1}>
-          <EmailContainer>
-            <InputStyled>
-              {!hideLabel && <label>Your email</label>}
-              <Input
-                placeholder="email@gmail.com"
-                onBlur={() => setHideLabel(false)}
-                onFocus={() => setHideLabel(true)}
-                type="email"
-                name="email"
-              />
-            </InputStyled>
-            <ActionButton>Send</ActionButton>
-          </EmailContainer>
-        </MotionLeftColumn>
-
+    <>
+      <Container>
+        <LeftColumn>
+          <MotionLeftColumn xInitial={-20} xDuration={0.8}>
+            <StartingSoon>15.06.2021</StartingSoon>
+          </MotionLeftColumn>
+          <MotionLeftColumn xInitial={-60} xDuration={1}>
+            <H1>
+              Alium marketplace <br />
+              is launching soon <Rocket>🚀</Rocket>
+            </H1>
+          </MotionLeftColumn>
+          <MotionLeftColumn xInitial={-40} xDuration={0.8}>
+            <H2>Leave your email and we will inform you about the launch</H2>
+          </MotionLeftColumn>
+          <MotionLeftColumn xInitial={-50} xDuration={1.1}>
+            <EmailContainer>
+              <InputStyled>
+                {!hideLabel && <label>Your email</label>}
+                <Input
+                  placeholder="email@gmail.com"
+                  onBlur={() => setHideLabel(false)}
+                  onFocus={() => setHideLabel(true)}
+                  type="email"
+                  name="email"
+                />
+              </InputStyled>
+              <ActionButton>Send</ActionButton>
+            </EmailContainer>
+          </MotionLeftColumn>
+        </LeftColumn>
+        <RightColumn>
+          <MarketPlace
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
+          />
+        </RightColumn>
+      </Container>
+      <Container>
         <Cards>
           <a href={`https://exchange.${getMainDomain()}`}>
             <MotionLeftColumn opacityDelay={0.3} xInitial={-80} xDuration={1.4}>
@@ -388,15 +414,8 @@ const HomeNew = () => {
             </MotionLeftColumn>
           </a>
         </Cards>
-      </LeftColumn>
-      <RightColumn>
-        <MarketPlace
-        // initial={{ opacity: 0 }}
-        // animate={{ opacity: 1 }}
-        // transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
-        />
-      </RightColumn>
-    </Container>
+      </Container>
+    </>
   )
 }
 
