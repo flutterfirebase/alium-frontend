@@ -90,7 +90,7 @@ const StartingSoon = styled.div`
 `
 
 const H1 = styled.h1`
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
@@ -114,7 +114,7 @@ const H1 = styled.h1`
 `
 
 const H2 = styled.h2`
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -154,6 +154,7 @@ const ActionButton = styled.div`
   &:hover {
     background: hsla(248, 57%, 65%);
   }
+
   @media screen and (max-width: 414px) {
     margin-left: 20px;
   }
@@ -226,6 +227,7 @@ const Card = styled.div`
   &:hover .button {
     background: hsla(0, 0%, 100%, 0.3) url('/images/home/card-arrow-right.svg') no-repeat center;
   }
+
   @media screen and (max-width: 1024px) {
     width: 100%;
   }
@@ -309,10 +311,11 @@ const EmailContainer = styled.div`
 
 const InputStyled = styled.div`
   position: relative;
+
   label {
     position: absolute;
     background: white;
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
@@ -323,10 +326,12 @@ const InputStyled = styled.div`
     width: 65px;
     text-align: center;
   }
+
   input {
     border: 1px solid #d2d6e5;
+
     &::placeholder {
-      font-family: Roboto;
+      font-family: Roboto, sans-serif;
       font-style: normal;
       font-weight: normal;
       font-size: 14px;
@@ -335,6 +340,20 @@ const InputStyled = styled.div`
       color: #d2d6e5;
     }
   }
+`
+
+const InputErrorStyled = styled.div`
+  position: absolute;
+  margin-top: 4px;
+  font-family: Roboto, sans-serif;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0;
+  color: #ed4b9e;
+`
+
+const InputSuccessStyled = styled(InputErrorStyled)`
+  color: #31d0aa;
 `
 
 const MotionLeftColumn: FC<{
@@ -363,9 +382,13 @@ function validateEmail(email) {
 const HomeNew = () => {
   const [hideLabel, setHideLabel] = useState(false)
   const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState<null | string>(null)
+  const [emailSuccess, setEmailSuccess] = useState<null | string>(null)
 
   const handleChangeEmail = (e: React.FormEvent<HTMLInputElement>) => {
     setEmail(e.currentTarget.value)
+    setEmailError(null)
+    setEmailSuccess(null)
   }
 
   const handleSubmitEmail = async () => {
@@ -373,7 +396,14 @@ const HomeNew = () => {
       const res = await dbMailListCreateEmail(email)
       if (res === true) {
         setEmail('')
+        setEmailSuccess('Your email has been added!')
+      } else if (res === false) {
+        setEmailError('Your email has already been added!')
+      } else {
+        setEmailError('Unknown error. Please contact support.')
       }
+    } else {
+      setEmailError('Please enter a valid email address')
     }
   }
 
@@ -398,6 +428,9 @@ const HomeNew = () => {
               <InputStyled>
                 {!hideLabel && <label>Your email</label>}
                 <Input
+                  isWarning={!!emailError}
+                  isSuccess={!!emailSuccess}
+                  scale="lg"
                   placeholder="email@gmail.com"
                   value={email}
                   onChange={handleChangeEmail}
@@ -406,7 +439,10 @@ const HomeNew = () => {
                   type="email"
                   name="email"
                 />
+                {emailError && <InputErrorStyled>{emailError}</InputErrorStyled>}
+                {emailSuccess && <InputSuccessStyled>{emailSuccess}</InputSuccessStyled>}
               </InputStyled>
+
               <ActionButton onClick={handleSubmitEmail}>Send</ActionButton>
             </EmailContainer>
           </MotionLeftColumn>
