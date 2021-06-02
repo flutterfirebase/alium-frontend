@@ -1,6 +1,6 @@
-import { getMainDomain, Input, useModal } from '@alium-official/uikit'
+import { getMainDomain,Input,useModal } from '@alium-official/uikit'
 import { motion } from 'framer-motion'
-import React, { FC, useState } from 'react'
+import React,{ FC,useState } from 'react'
 import styled from 'styled-components'
 import { dbMailListCreateEmail } from 'utils/firebase'
 import CongratsModal from 'views/Home/components/CongratsModal'
@@ -15,6 +15,7 @@ const Container = styled.div`
   flex-direction: row;
   @media screen and (max-width: 768px) {
     flex-direction: column-reverse;
+    margin: 0 auto 0px auto;
   }
 `
 
@@ -98,13 +99,26 @@ const H1 = styled.h1`
   line-height: 56px;
   letter-spacing: 0.3px;
   margin-top: 32px;
+  color: #0b1359;
+  span {
+    margin-left: 8px;
+  }
+
   @media screen and (max-width: 1024px) {
-    max-width: 370px;
     font-size: 40px;
+    line-height: 48px;
+    span {
+      display: block;
+      margin-left: 0px;
+    }
   }
   @media screen and (max-width: 768px) {
     line-height: 40px;
     margin-top: 16px;
+    span {
+      display: inline-block;
+      margin-left: 8px;
+    }
   }
   @media screen and (max-width: 414px) {
     font-size: 32px;
@@ -124,10 +138,11 @@ const H2 = styled.h2`
   color: #8990a5;
   margin-top: 32px;
   @media screen and (max-width: 1024px) {
-    max-width: 370px;
+    max-width: 278px;
   }
   @media screen and (max-width: 768px) {
     margin-top: 16px;
+    text-align: center;
   }
   @media screen and (max-width: 414px) {
     text-align: center;
@@ -282,10 +297,11 @@ const MarketPlace = styled(motion.div)`
     background-size: cover;
   }
 `
-const Rocket = styled.span`
+const Rocket = styled.div`
   font-size: 24px;
   position: relative;
   right: 10px;
+  display: inline-block;
   top: -5px;
 `
 
@@ -300,11 +316,14 @@ const EmailContainer = styled.div`
   align-items: center;
   padding: 24px;
   @media screen and (max-width: 1024px) {
-    max-width: 370px;
+    max-width: 350px;
   }
   @media screen and (max-width: 414px) {
     width: 100%;
-    max-width: auto;
+    max-width: none;
+    input {
+      width: 100%;
+    }
   }
 `
 
@@ -325,10 +344,9 @@ const InputStyled = styled.div`
     width: 65px;
     text-align: center;
   }
-
   input {
     border: 1px solid #d2d6e5;
-
+    width: 303px;
     &::placeholder {
       font-family: Roboto, sans-serif;
       font-style: normal;
@@ -337,6 +355,11 @@ const InputStyled = styled.div`
       line-height: 20px;
       letter-spacing: 0.3px;
       color: #d2d6e5;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    input {
+      width: 204px;
     }
   }
 `
@@ -363,7 +386,6 @@ const StyledLoader = styled.div`
   background: url(/images/home/loader.svg);
   width: 24px;
   height: 24px;
-%;
   animation: spinner 1s linear infinite;
 `
 
@@ -436,7 +458,10 @@ const HomeNew = () => {
           <MotionLeftColumn xInitial={-60} xDuration={1}>
             <H1>
               Alium marketplace <br />
-              is launching soon <Rocket>🚀</Rocket>
+              is launching
+              <span>
+                soon <Rocket>🚀</Rocket>
+              </span>
             </H1>
           </MotionLeftColumn>
           <MotionLeftColumn xInitial={-40} xDuration={0.8}>
