@@ -15,7 +15,8 @@
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
-    "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'"
+    "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",
+    "update:uikit": "npx npm-check-updates @alium-official/* --target greatest -u"
   },
   "browserslist": {
     "production": [
@@ -34,7 +35,7 @@
   },
   "dependencies": {
     "@alium-official/sdk": "^1.1.14",
-    "@alium-official/uikit": "^0.11.79",
+    "@alium-official/uikit": "^0.11.80",
     "@binance-chain/bsc-connector": "^1.0.3",
     "@crowdin/crowdin-api-client": "^1.10.6",
     "@ethersproject/experimental": "^5.1.2",
@@ -69,6 +70,7 @@
     "copy-to-clipboard": "^3.3.1",
     "dotenv-cli": "^4.0.0",
     "ethers": "^5.1.4",
+    "firebase": "^8.6.3",
     "framer-motion": "^4.1.11",
     "i18next": "^20.2.2",
     "i18next-browser-languagedetector": "^6.1.0",
