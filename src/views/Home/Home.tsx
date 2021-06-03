@@ -1,9 +1,10 @@
-import React from 'react'
 // import styled from 'styled-components'
 // import { Heading, Text, BaseLayout } from '@alium-official/uikit'
 // import { BaseLayout } from '@alium-official/uikit'
 // import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
+import React from 'react'
+import styled from 'styled-components'
 // import FarmStakingCard from 'views/Home/components/FarmStakingCard'
 // import LotteryCard from 'views/Home/components/LotteryCard'
 // import CakeStats from 'views/Home/components/CakeStats'
@@ -67,11 +68,16 @@ import HomeNew from './components/HomeNew'
 //   }
 // `
 
+const PageWrap = styled(Page)`
+  padding-right: 0px;
+  overflow: hidden;
+`
+
 const Home: React.FC = () => {
   return (
-    <Page>
+    <PageWrap>
       <HomeNew />
-    </Page>
+    </PageWrap>
   )
 }
 
