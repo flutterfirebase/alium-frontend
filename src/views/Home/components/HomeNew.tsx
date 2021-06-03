@@ -183,6 +183,7 @@ const Cards = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   @media screen and (max-width: 1024px) {
+    padding-right: 24px;
     max-width: none;
     a {
       width: 49%;
@@ -196,6 +197,9 @@ const Cards = styled.div`
     a {
       width: 100%;
     }
+  }
+  @media screen and (max-width: 576px) {
+    padding-right: 16px;
   }
   @media screen and (max-width: 414px) {
     max-width: none;
