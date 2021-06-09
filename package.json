@@ -16,7 +16,7 @@
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
     "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",
-    "update:uikit": "npx npm-check-updates @alium-official/* --target greatest -u"
+    "update:uikit": "npx npm-check-updates @alium-official/* --target greatest -u && yarn"
   },
   "browserslist": {
     "production": [
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@alium-official/sdk": "^1.1.14",
-    "@alium-official/uikit": "^0.11.90",
+    "@alium-official/uikit": "^0.11.112",
     "@binance-chain/bsc-connector": "^1.0.3",
     "@crowdin/crowdin-api-client": "^1.10.6",
     "@ethersproject/experimental": "^5.1.2",
