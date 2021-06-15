@@ -1,6 +1,6 @@
-import { getMainDomain,useModal } from '@alium-official/uikit'
+import { getMainDomain, useModal } from '@alium-official/uikit'
 import { motion } from 'framer-motion'
-import React,{ FC,useState } from 'react'
+import React, { FC, useState } from 'react'
 import styled from 'styled-components'
 import { dbMailListCreateEmail } from 'utils/firebase'
 import CongratsModal from 'views/Home/components/CongratsModal'
@@ -488,7 +488,9 @@ const HomeNew = () => {
 
               <ActionButton onClick={handleSubmitEmail}>{isLoading ? <StyledLoader /> : 'Send'}</ActionButton>
             </EmailContainer> */}
-            <ActionButton onClick={handleSubmitEmail}>Join In</ActionButton>
+            <a href="https://alium.art/" target="_blank">
+              <ActionButton>Join In</ActionButton>
+            </a>
           </MotionLeftColumn>
         </LeftColumn>
         <RightColumn>
