@@ -175,7 +175,7 @@ const ActionButton = styled.div`
   }
 
   @media screen and (max-width: 414px) {
-    margin-left: 20px;
+    margin-left: 0px;
   }
 `
 
@@ -187,6 +187,7 @@ const Cards = styled.div`
   justify-content: space-between;
   @media screen and (max-width: 1024px) {
     padding-right: 24px;
+    padding-left: 24px;
     max-width: none;
     a {
       width: 49%;
@@ -203,6 +204,7 @@ const Cards = styled.div`
   }
   @media screen and (max-width: 576px) {
     padding-right: 16px;
+    padding-left: 16px;
   }
   @media screen and (max-width: 414px) {
     max-width: none;
