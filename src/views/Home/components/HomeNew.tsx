@@ -1,6 +1,6 @@
-import { getMainDomain, useModal } from '@alium-official/uikit'
+import { getMainDomain,useModal } from '@alium-official/uikit'
 import { motion } from 'framer-motion'
-import React, { FC, useState } from 'react'
+import React,{ FC,useState } from 'react'
 import styled from 'styled-components'
 import { dbMailListCreateEmail } from 'utils/firebase'
 import CongratsModal from 'views/Home/components/CongratsModal'
@@ -109,6 +109,7 @@ const H1 = styled.h1`
   @media screen and (max-width: 1024px) {
     font-size: 40px;
     line-height: 48px;
+
     span {
       display: block;
       margin-left: 0px;
@@ -117,12 +118,16 @@ const H1 = styled.h1`
   @media screen and (max-width: 768px) {
     line-height: 40px;
     margin-top: 16px;
+    padding-right: 24px;
+    padding-left: 24px;
     span {
       display: inline-block;
       margin-left: 8px;
     }
   }
   @media screen and (max-width: 414px) {
+    padding-right: 16px;
+    padding-left: 16px;
     font-size: 32px;
   }
   @media screen and (max-width: 350px) {
