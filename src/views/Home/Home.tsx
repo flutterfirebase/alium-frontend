@@ -71,6 +71,9 @@ import HomeNew from './components/HomeNew'
 const PageWrap = styled(Page)`
   padding-right: 0px;
   overflow: hidden;
+  @media screen and (max-width: 768px) {
+    padding-left: 0px;
+  }
 `
 
 const Home: React.FC = () => {

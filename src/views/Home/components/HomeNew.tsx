@@ -1,4 +1,4 @@
-import { getMainDomain,Input,useModal } from '@alium-official/uikit'
+import { getMainDomain,useModal } from '@alium-official/uikit'
 import { motion } from 'framer-motion'
 import React,{ FC,useState } from 'react'
 import styled from 'styled-components'
@@ -24,15 +24,17 @@ const LeftColumn = styled.div`
   flex-direction: column;
   max-width: 546px;
   width: 100%;
-  margin: 40px auto 0 auto;
+  /* margin: 147px auto 0 auto; */
+  margin-top: 147px;
 
-  @media screen and (min-width: 1320px) {
+  /* @media screen and (min-width: 1320px) {
     margin: 0;
-  }
+  } */
   @media screen and (max-width: 768px) {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     margin: 0px auto 0 auto;
   }
 `
@@ -107,6 +109,7 @@ const H1 = styled.h1`
   @media screen and (max-width: 1024px) {
     font-size: 40px;
     line-height: 48px;
+
     span {
       display: block;
       margin-left: 0px;
@@ -115,12 +118,16 @@ const H1 = styled.h1`
   @media screen and (max-width: 768px) {
     line-height: 40px;
     margin-top: 16px;
+    padding-right: 24px;
+    padding-left: 24px;
     span {
       display: inline-block;
       margin-left: 8px;
     }
   }
   @media screen and (max-width: 414px) {
+    padding-right: 16px;
+    padding-left: 16px;
     font-size: 32px;
   }
   @media screen and (max-width: 350px) {
@@ -150,11 +157,12 @@ const H2 = styled.h2`
 `
 
 const ActionButton = styled.div`
+  margin-top: 30px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   padding: 14px 24px;
-  width: 83px;
+  width: 100px;
   height: 48px;
   background: hsl(248, 57%, 60%);
   border-radius: 6px;
@@ -172,7 +180,7 @@ const ActionButton = styled.div`
   }
 
   @media screen and (max-width: 414px) {
-    margin-left: 20px;
+    margin-left: 0px;
   }
 `
 
@@ -184,6 +192,7 @@ const Cards = styled.div`
   justify-content: space-between;
   @media screen and (max-width: 1024px) {
     padding-right: 24px;
+    padding-left: 24px;
     max-width: none;
     a {
       width: 49%;
@@ -200,6 +209,7 @@ const Cards = styled.div`
   }
   @media screen and (max-width: 576px) {
     padding-right: 16px;
+    padding-left: 16px;
   }
   @media screen and (max-width: 414px) {
     max-width: none;
@@ -456,23 +466,17 @@ const HomeNew = () => {
     <>
       <Container>
         <LeftColumn>
-          <MotionLeftColumn xInitial={-20} xDuration={0.8}>
+          {/* <MotionLeftColumn xInitial={-20} xDuration={0.8}>
             <StartingSoon>15.06.2021</StartingSoon>
-          </MotionLeftColumn>
+          </MotionLeftColumn> */}
           <MotionLeftColumn xInitial={-60} xDuration={1}>
-            <H1>
-              Alium marketplace <br />
-              is launching
-              <span>
-                soon <Rocket>🚀</Rocket>
-              </span>
-            </H1>
+            <H1>Alium Art NFT Marketplace is here!</H1>
           </MotionLeftColumn>
           <MotionLeftColumn xInitial={-40} xDuration={0.8}>
-            <H2>Leave your email and we will inform you about the launch</H2>
+            <H2>Join in to get some exclusive drops!</H2>
           </MotionLeftColumn>
           <MotionLeftColumn xInitial={-50} xDuration={1.1}>
-            <EmailContainer>
+            {/* <EmailContainer>
               <InputStyled>
                 {!hideLabel && <label>Your email</label>}
                 <Input
@@ -490,7 +494,10 @@ const HomeNew = () => {
               </InputStyled>
 
               <ActionButton onClick={handleSubmitEmail}>{isLoading ? <StyledLoader /> : 'Send'}</ActionButton>
-            </EmailContainer>
+            </EmailContainer> */}
+            <a href="https://alium.art/" target="_blank">
+              <ActionButton>Join In</ActionButton>
+            </a>
           </MotionLeftColumn>
         </LeftColumn>
         <RightColumn>
